@@ -1,0 +1,244 @@
+.intro {
+  position: relative;
+  height: 100vh;
+  background-color: #faedff;
+  overflow: clip;
+}
+.intro img {
+  object-fit: cover;
+  width: 60%;
+}
+.intro .row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+.col50 {
+  width: 50%;
+  padding: 40px;
+}
+.col50 h1 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 109.72%;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: #312782;
+}
+.col50 h2 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145.69%;
+  letter-spacing: 0.17em;
+  color: #312782;
+}
+.col50 img {
+  margin-top: -50px;
+  width: 120%;
+}
+.imgHolder {
+  background-color: #f9f6fa;
+  border-radius: 50%;
+  margin-left: 200px;
+  height: 50vh;
+  width: 50vh;
+}
+.section1 {
+  width: 100%;
+  padding: 0px 100px 0px 100px;
+  margin: 100px 0px 150px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.section1 img {
+  width: 100%;
+  height: 100px;
+}
+.section1 h1 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 109.72%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: #312782;
+}
+.section1 p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 145.69%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.17em;
+  color: #4f4f4f;
+}
+
+.section2 {
+  padding: 50px;
+  width: 100%;
+}
+.section2 .col {
+  margin-top: -100px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+.section2 .imgHolder {
+  width: 150px;
+  height: 150px;
+  background-image: linear-gradient(
+    180deg,
+    #faedff 0%,
+    rgba(250, 237, 255, 0) 100%
+  );
+  border-radius: 50%;
+  border: 1px solid#312782;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0px;
+}
+.section2 .col img {
+  width: 80%;
+}
+.section2 .even {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.section2 .col h1 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 145.69%;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: #312782;
+}
+.section2 .col p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 145.69%;
+  letter-spacing: 0.17em;
+  color: #312782;
+}
+/* DOTTED LINE */
+.chart {
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.chart svg {
+  height: 100%;
+}
+.chart svg line {
+  stroke: rgba(49, 39, 131, 1);
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-dasharray: 2px 20px;
+  animation: animateline 5s linear both infinite;
+}
+
+@-moz-keyframes animateline {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -5rem;
+  }
+}
+@-webkit-keyframes animateline {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -5rem;
+  }
+}
+@-o-keyframes animateline {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -5rem;
+  }
+}
+@keyframes animateline {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    height: 60vh;
+    overflow: visible;
+    margin-bottom: 400px;
+  }
+  .intro img {
+    object-fit: cover;
+    height: 60vh;
+    width: 100%;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .row:nth-of-type(1) {
+    margin-top: 200px;
+  }
+  .col50 {
+    width: 100%;
+    padding: 30px;
+  }
+  .col50 h1 {
+    font-size: 24px;
+  }
+  .col50 h2 {
+    font-size: 14px;
+  }
+  .col50 img {
+    margin-top: 0px;
+    width: 100%;
+    height: auto;
+  }
+  .imgHolder {
+    background-color: #f9f6fa;
+    border-radius: 50%;
+    margin-left: 0px;
+    height: 40vh;
+    width: 40vh;
+  }
+  .section1 {
+    padding: 20px;
+    margin: 100px 0px -80px 0px;
+  }
+  .section2 .col {
+    width: 100%;
+    padding: 0px;
+    margin-top: -100px;
+  }
+}

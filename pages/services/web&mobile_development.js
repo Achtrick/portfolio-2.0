@@ -21,8 +21,38 @@ export default function Service() {
   return (
     <Layout
       title="Web and Modile development"
-      description="Creo - Knowledge & Innovation"
-      tags={["creo", "digital", "Knowledge", "Innovation"]}
+      description="Creo - You came to the right place, when it comes to coding your website or your mobile application, our skilled developers will make sure that your products are up to date in terms of technologies and best practices."
+      tags={[
+        "creo",
+        "digital",
+        "Knowledge",
+        "Innovation",
+        "web and mobile development",
+        "hybrid apps",
+        "ecommerce app development",
+        " web and mobile app development",
+        " mobile web development",
+        " django mobile app",
+        "native and hybrid app",
+        " web and mobile development company",
+        " web and mobile application development",
+        "web and mobile app development company",
+        " html5 mobile app",
+        "mobile web application development",
+        "mobile website development",
+        "mobile web app development",
+        "web and mobile app development services",
+        "react native for web and mobile",
+        "ecommerce application development company",
+        "online mobile app development",
+        "website and mobile app development",
+        "app development website",
+        " web design mobile",
+        " website and mobile app developers",
+        "web mobile development and marketing",
+        " web and mobile application development company",
+        "website application development company",
+      ]}
     >
       <section className={styles.intro}>
         <img

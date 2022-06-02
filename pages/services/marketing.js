@@ -21,8 +21,38 @@ export default function Service() {
   return (
     <Layout
       title="Digital Marketing"
-      description="Creo - Knowledge & Innovation"
-      tags={["creo", "digital", "Knowledge", "Innovation"]}
+      description="Creo - marketing and online presence is the way to reach a variety of clients and collabs."
+      tags={[
+        "creo",
+        "digital",
+        "Knowledge",
+        "Innovation",
+        "marketing",
+        "digital marketing",
+        "affiliate marketing",
+        "influencer",
+        "social media marketing",
+        "network marketing",
+        "inbound marketing",
+        "marketing strategy",
+        "email marketing",
+        "content marketing",
+        "market segmentation",
+        "marketing management",
+        "segmentation",
+        "marketing plan",
+        "ssw marketing",
+        "online marketing",
+        "ansoff matrix",
+        "influencer marketing",
+        "digital marketing agency",
+        "hubspot academy",
+        "target market",
+        "neuromarketing",
+        "lead generation",
+        "brand equity",
+        "trade marketing",
+      ]}
     >
       <section className={styles.intro}>
         <img

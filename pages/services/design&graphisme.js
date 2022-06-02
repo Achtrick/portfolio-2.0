@@ -21,8 +21,38 @@ export default function Service() {
   return (
     <Layout
       title="Design and graphics"
-      description="Creo - Knowledge & Innovation"
-      tags={["creo", "digital", "Knowledge", "Innovation"]}
+      description="Creo - Design and graphics skills at youe service, our skilled designers will deliver your brand identity."
+      tags={[
+        "creo",
+        "digital",
+        "Knowledge",
+        "Innovation",
+        "graphic design",
+        "crello",
+        "graphic",
+        "motion graphics",
+        "graphic design courses",
+        "paula scher",
+        "massimo vignelli",
+        "graphic artist",
+        "motion designer",
+        "neville brody",
+        "freelance graphic designer",
+        "visual designer",
+        "vector illustration",
+        "otl aicher",
+        "social media design",
+        "social media post design",
+        "print design",
+        "graphic design services",
+        "graphic design logo",
+        "digital designer",
+        "graphic design website",
+        "wolfgang weingart",
+        "graphic designer near me",
+        "famous graphic designers",
+        "canva graphic design",
+      ]}
     >
       <section className={styles.intro}>
         <img

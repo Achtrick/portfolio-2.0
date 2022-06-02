@@ -21,8 +21,38 @@ export default function Service() {
   return (
     <Layout
       title="Referencing"
-      description="Creo - Knowledge & Innovation"
-      tags={["creo", "digital", "Knowledge", "Innovation"]}
+      description="Creo - Referencing your brand is the way for a strong online presence."
+      tags={[
+        "creo",
+        "digital",
+        "Knowledge",
+        "Innovation",
+        "referencing",
+        "reference",
+        "harvard referencing",
+        "apa in text citation",
+        "chicago style citation",
+        "apa referencing",
+        "apa style citation",
+        "harvard referencing style",
+        "cite them right",
+        "apa referencing style",
+        "cite this for me apa",
+        "ieee citation",
+        "apa citation example",
+        "apa 7 citation",
+        "apa in text citation multiple authors",
+        "oscola referencing",
+        "harvard citation",
+        "apa in text citation example",
+        "vancouver referencing",
+        "harvard referencing example",
+        "apa 7 referencing",
+        "cite this for me harvard",
+        "reference list",
+        "oscola",
+        "harvard referencing website",
+      ]}
     >
       <section className={styles.intro}>
         <img

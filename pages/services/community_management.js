@@ -21,8 +21,38 @@ export default function Service() {
   return (
     <Layout
       title="Community management"
-      description="Creo - Knowledge & Innovation"
-      tags={["creo", "digital", "Knowledge", "Innovation"]}
+      description="Creo - Community management and social media techniques to become a digital phenom"
+      tags={[
+        "creo",
+        "digital",
+        "Knowledge",
+        "Innovation",
+        "community management",
+        "hoa management companies",
+        "community association management",
+        "tribe management",
+        "community management associates",
+        "blue mountain community management",
+        "community property management",
+        "community management services",
+        "cams property management",
+        "community management corporation",
+        "hoa property management",
+        "associa hoa",
+        "ccmc hoa",
+        "north pointe property management",
+        "rose community management",
+        "consolidated community management",
+        "professional community management",
+        "condo association management",
+        "cam management",
+        "hoa property management companies",
+        "cams hoa",
+        "allinonemgmt",
+        "all county community property manag",
+        "cusick community management",
+        "homeowners association management companies",
+      ]}
     >
       <section className={styles.intro}>
         <img

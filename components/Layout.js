@@ -81,6 +81,29 @@ export default function Layout({ title, tags, description, children }) {
           href="https://fonts.cdnfonts.com/css/hastafi-personal-use-only"
           rel="stylesheet"
         />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.webp" />
+        <link
+          rel="icon"
+          type="image/webp"
+          sizes="32x32"
+          href="/images/logo.webp"
+        />
+        <link
+          rel="icon"
+          type="image/webp"
+          sizes="16x16"
+          href="/images/logo.webp"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/images/logo.webp" />
+        <link rel="shortcut icon" href="/images/logo.webp" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="theme-color" content="#000" />
+        <meta charSet="utf-8" />
+        <link rel="canonical" href="https://creo.tn" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="robots" content="index, follow" />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />

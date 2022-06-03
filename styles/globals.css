@@ -87,6 +87,10 @@ select:focus {
   justify-content: flex-end;
 }
 
+.ll{
+  text-align: center;
+}
+
 
 /* Language Swicher */
 

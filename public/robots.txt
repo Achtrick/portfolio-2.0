@@ -4,7 +4,6 @@ Allow: /fr
 Allow: /news
 Allow: /services/community_management
 Allow: /services/design&graphisme
-Allow: /services/Prospection
 Allow: /services/marketing
 Allow: /services/referencement
 Allow: /services/web&mobile_development
@@ -15,7 +14,6 @@ Allow: /portfolio
 Allow: /fr/news
 Allow: /fr/services/community_management
 Allow: /fr/services/design&graphisme
-Allow: /fr/services/Prospection
 Allow: /fr/services/marketing
 Allow: /fr/services/referencement
 Allow: /fr/services/web&mobile_development

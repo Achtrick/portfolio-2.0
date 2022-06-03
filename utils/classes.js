@@ -49,7 +49,7 @@ const classes = {
   },
   navbarMenu: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "left",
     width: "100%",
   },
   menuTitle: {

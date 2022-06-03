@@ -90,6 +90,12 @@ select:focus {
 
 /* Language Swicher */
 
+.selected-lang{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .languages img {
   border: 1px solid #EEE; 
   border-radius: 50%;

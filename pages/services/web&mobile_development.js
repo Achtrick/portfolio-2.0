@@ -125,7 +125,7 @@ export default function Service() {
           data-aos-delay="500"
           className={styles.chart}
         >
-          <svg viewbox="0 100 0 100">
+          <svg viewBox="0 100 0 100">
             <line x1="150" x2="150" y1="0" y2="100" />
           </svg>
         </div>
@@ -149,7 +149,7 @@ export default function Service() {
           data-aos-delay="500"
           className={styles.chart}
         >
-          <svg viewbox="0 100 0 100">
+          <svg viewBox="0 100 0 100">
             <line x1="150" x2="150" y1="0" y2="100" />
           </svg>
         </div>
@@ -173,7 +173,7 @@ export default function Service() {
           data-aos-delay="500"
           className={styles.chart}
         >
-          <svg viewbox="0 100 0 100">
+          <svg viewBox="0 100 0 100">
             <line x1="150" x2="150" y1="0" y2="100" />
           </svg>
         </div>
@@ -197,7 +197,7 @@ export default function Service() {
           data-aos-delay="500"
           className={styles.chart}
         >
-          <svg viewbox="0 100 0 100">
+          <svg viewBox="0 100 0 100">
             <line x1="150" x2="150" y1="0" y2="100" />
           </svg>
         </div>

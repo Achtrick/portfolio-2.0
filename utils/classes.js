@@ -132,6 +132,9 @@ const classes = {
     color: "#FFF",
     width: "120px",
     marginTop: "-2px",
+    border: "none",
+    borderBottom: "2px solid #FFF",
+    backgroundColor: "transparent",
     "& input": {
       color: "#FFF",
       background: "transparent",

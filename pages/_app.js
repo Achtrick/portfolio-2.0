@@ -8,7 +8,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { AppContext } from "../components/AppContext";
-import Script from 'next/script';
 
 const clientSideEmotionCache = createCache({ key: "css" });
 
@@ -31,19 +30,6 @@ function MyApp({
   const [openItem, setOpenItem] = useState({});
 
   return (
-    <>
-    <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
-
-    <Script strategy="lazyOnload" id="google-script">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-            page_path: window.location.pathname,
-            });
-        `}
-    </Script>
     <AppContext.Provider
       value={{ openView, setOpenView, openItem, setOpenItem }}
     >
@@ -57,7 +43,6 @@ function MyApp({
         </SnackbarProvider>
       </CacheProvider>
     </AppContext.Provider>
-    </>
   );
 }
 

@@ -12,7 +12,7 @@ export default function NewsItem(props) {
     <div className="ourNews_item" key={myNew._id}>
       <NextLink href={`/news/${myNew.slug.current}`} passHref>
         <Link>
-          <CardActionArea>
+          <a><CardActionArea>
             <CardMedia
               sx={{ width: "100%" }}
               component="img"
@@ -22,18 +22,18 @@ export default function NewsItem(props) {
             <div className="ourNews_item_overlay">
               <VisibilityIcon size="large" />
             </div>
-          </CardActionArea>
+          </CardActionArea></a>
         </Link>
       </NextLink>
       <div className="ourNews_item_content">
         <NextLink href={`/news/${myNew.slug.current}`} passHref>
           <Link>
-            <h3>{myNew.title}</h3>
+            <a><h3>{myNew.title}</h3></a>
           </Link>
         </NextLink>
         <p>{myNew.description}</p>
         <NextLink href={`/news/${myNew.slug.current}`} passHref>
-          <button className="button">{t("ourNews_button")}</button>
+          <Link><a><button className="button">{t("ourNews_button")}</button></a></Link>
         </NextLink>
       </div>
     </div>

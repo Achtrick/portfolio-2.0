@@ -69,7 +69,7 @@ export default function Layout({ title, tags, description, children }) {
           defer
           rel="preconnect"
           href="https://fonts.gstatic.com"
-          crossOrigin={true}
+          crossOrigin="true"
         />
         <link
           defer

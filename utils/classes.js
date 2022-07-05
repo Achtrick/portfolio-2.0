@@ -56,7 +56,7 @@ const classes = {
     color: "#FFF",
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
     fontWeight: "100",
-    fontSize: "0.75rem",
+    fontSize: "0.78vw",
     textTransform: "uppercase",
     marginRight: "1rem",
     transition: "0.8s",

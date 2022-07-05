@@ -135,7 +135,7 @@ export default function Header(props) {
     if (servicesRoutes.includes(asPath)) {
       setLogo({ ...logo, src: "/images/logo.webp", width: 120, height: 78 });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [asPath]);
 
   return (
@@ -155,15 +155,15 @@ export default function Header(props) {
         <Toolbar sx={classes.toolbar} width="100%">
           <Box display="flex" alignItems="center" width="20%">
             <NextLink href="/" passHref>
-              
-                <a><Image
+              <a>
+                <Image
                   style={{ cursor: "pointer" }}
                   src={logo.src}
                   alt="logo"
                   width={logo.width}
                   height={logo.height}
-                /></a>
-              
+                />
+              </a>
             </NextLink>
           </Box>
           <Box
@@ -175,14 +175,14 @@ export default function Header(props) {
           >
             <Box sx={classes.navbarMenu}>
               <NextLink href="/" passHref>
-                
-                  <a><Typography sx={classes.menuTitle}>{t("home")}</Typography></a>
-                
+                <a>
+                  <Typography sx={classes.menuTitle}>{t("home")}</Typography>
+                </a>
               </NextLink>
               <NextLink href="/about" passHref>
-                
-                  <a><Typography sx={classes.menuTitle}>{t("about")}</Typography></a>
-                
+                <a>
+                  <Typography sx={classes.menuTitle}>{t("about")}</Typography>
+                </a>
               </NextLink>
               <Box
                 onClick={(e) => {
@@ -193,31 +193,31 @@ export default function Header(props) {
                 <Typography sx={classes.menuTitle}>{t("services")}</Typography>
               </Box>
               <NextLink href="/portfolio" passHref>
-                
-                  <a><Typography sx={classes.menuTitle}>
+                <a>
+                  <Typography sx={classes.menuTitle}>
                     {t("portfolio")}
-                  </Typography></a>
-                
+                  </Typography>
+                </a>
               </NextLink>
               <NextLink href="/joinus" passHref>
-                
-                  <a><Typography sx={classes.menuTitle}>
+                <a>
+                  <Typography sx={classes.menuTitle}>
                     {t("joinus_title")}
-                  </Typography></a>
-                
+                  </Typography>
+                </a>
               </NextLink>
               <NextLink href="/news" passHref>
-                
-                  <a><Typography sx={classes.menuTitle}>{t("news")}</Typography></a>
-                
+                <a>
+                  <Typography sx={classes.menuTitle}>{t("news")}</Typography>
+                </a>
               </NextLink>
               <NextLink href="/contact" passHref>
-                
-                  <a><Typography sx={classes.menuTitle}>{t("contact")}</Typography></a>
-                
+                <a>
+                  <Typography sx={classes.menuTitle}>{t("contact")}</Typography>
+                </a>
               </NextLink>
             </Box>
-            <Box>
+            {/* <Box>
               <div
                 className="languages flex center"
                 onClick={() => setShowLangsList(!showLangsList)}
@@ -268,7 +268,7 @@ export default function Header(props) {
                   </ul>
                 </div>
               </div>
-            </Box>
+            </Box> */}
           </Box>
           <Box
             width="20%"
@@ -309,15 +309,15 @@ export default function Header(props) {
         <Toolbar sx={{ justifyContent: "space-between", padding: "0px 10px" }}>
           <Box display="flex" alignItems="center">
             <NextLink href="/" passHref>
-              
-                <a><Image
+              <a>
+                <Image
                   style={{ cursor: "pointer" }}
                   src={logo.src}
                   alt="logo"
                   width={logo.width}
                   height={logo.height}
-                /></a>
-              
+                />
+              </a>
             </NextLink>
           </Box>
           <Box display="flex" alignItems="center" justifyContent="center">
@@ -406,8 +406,8 @@ export default function Header(props) {
         <DialogContent>
           <Box sx={{ position: "relative" }}>
             <NextLink href="/services/web&mobile_development" passHref>
-              
-                <a><Typography
+              <a>
+                <Typography
                   onClick={() => {
                     setSidebarVisible(false);
                     setShowServices(false);
@@ -415,12 +415,12 @@ export default function Header(props) {
                   sx={classes.servicesTitle}
                 >
                   {t("service1")}
-                </Typography></a>
-              
+                </Typography>
+              </a>
             </NextLink>
             <NextLink href="/services/design&graphisme" passHref>
-              
-                <a><Typography
+              <a>
+                <Typography
                   onClick={() => {
                     setSidebarVisible(false);
                     setShowServices(false);
@@ -428,12 +428,12 @@ export default function Header(props) {
                   sx={classes.servicesTitle}
                 >
                   {t("service2")}
-                </Typography></a>
-              
+                </Typography>
+              </a>
             </NextLink>
             <NextLink href="/services/referencement" passHref>
-              
-                <a><Typography
+              <a>
+                <Typography
                   onClick={() => {
                     setSidebarVisible(false);
                     setShowServices(false);
@@ -441,12 +441,12 @@ export default function Header(props) {
                   sx={classes.servicesTitle}
                 >
                   {t("service3")}
-                </Typography></a>
-              
+                </Typography>
+              </a>
             </NextLink>
             <NextLink href="/services/community_management" passHref>
-              
-                <a><Typography
+              <a>
+                <Typography
                   onClick={() => {
                     setSidebarVisible(false);
                     setShowServices(false);
@@ -454,12 +454,12 @@ export default function Header(props) {
                   sx={classes.servicesTitle}
                 >
                   {t("service4")}
-                </Typography></a>
-              
+                </Typography>
+              </a>
             </NextLink>
             <NextLink href="/services/marketing" passHref>
-              
-                <a><Typography
+              <a>
+                <Typography
                   onClick={() => {
                     setSidebarVisible(false);
                     setShowServices(false);
@@ -467,8 +467,8 @@ export default function Header(props) {
                   sx={classes.servicesTitle}
                 >
                   {t("service5")}
-                </Typography></a>
-              
+                </Typography>
+              </a>
             </NextLink>
           </Box>
         </DialogContent>
@@ -517,22 +517,22 @@ export default function Header(props) {
         </List>
         <Box sx={{ display: "block" }}>
           <NextLink href="/" passHref>
-            
-              <a><Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
+            <a>
+              <Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
                 {t("home")}
-              </Typography></a>
-            
+              </Typography>
+            </a>
           </NextLink>
           <NextLink href="/about" passHref>
-            
-            <a><Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
+            <a>
+              <Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
                 {t("about")}
-              </Typography></a>
-            
+              </Typography>
+            </a>
           </NextLink>
           <NextLink href="/services" passHref>
-            
-              <a><Typography
+            <a>
+              <Typography
                 onClick={(e) => {
                   e.preventDefault();
                   setShowServices(true);
@@ -540,29 +540,29 @@ export default function Header(props) {
                 sx={{ color: "#FFF", padding: "10px 20px" }}
               >
                 {t("services")}
-              </Typography></a>
-            
+              </Typography>
+            </a>
           </NextLink>
           <NextLink href="/portfolio" passHref>
-            
-              <a><Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
+            <a>
+              <Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
                 {t("portfolio")}
-              </Typography></a>
-            
+              </Typography>
+            </a>
           </NextLink>
           <NextLink href="/news" passHref>
-            
-              <a><Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
+            <a>
+              <Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
                 {t("news")}
-              </Typography></a>
-            
+              </Typography>
+            </a>
           </NextLink>
           <NextLink href="/contact" passHref>
-            
-              <a><Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
+            <a>
+              <Typography sx={{ color: "#FFF", padding: "10px 20px" }}>
                 {t("contact")}
-              </Typography></a>
-            
+              </Typography>
+            </a>
           </NextLink>
         </Box>
       </Drawer>

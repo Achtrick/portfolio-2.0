@@ -104,6 +104,7 @@ export default function Layout({ title, tags, description, children }) {
         <link rel="canonical" href="https://creo.tn" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="robots" content="index, follow" />
+        <meta name="facebook-domain-verification" content="dwtqsd5gc07a2gwvta6n9b3uexbo59" />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />

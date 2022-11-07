@@ -41,8 +41,8 @@ const classes = {
     justifyContent: "space-between",
   },
   navbarContainer: {
-    width: "60%",
-    padding: "2px 20px",
+    width: "70%",
+    padding: "10px 20px",
     backgroundColor: "rgba(50, 39, 130, 0.18);",
     backdropFilter: "blur(4px)",
     borderRadius: "30px",

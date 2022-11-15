@@ -24,7 +24,7 @@ function MyApp({
     import('react-facebook-pixel')
       .then((x) => x.default)
       .then((ReactPixel) => {
-        ReactPixel.init('1244199736145651') // facebookPixelId
+        ReactPixel.init('580663037159050') // facebookPixelId
         ReactPixel.pageView()
         ReactPixel.track('ViewContent');
         ReactPixel.track('Contact');

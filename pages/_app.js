@@ -26,7 +26,8 @@ function MyApp({
       .then((ReactPixel) => {
         ReactPixel.init('1244199736145651') // facebookPixelId
         ReactPixel.pageView()
-
+        ReactPixel.track('ViewContent');
+        ReactPixel.track('Contact');
         router.events.on('routeChangeComplete', () => {
           ReactPixel.pageView()
         })

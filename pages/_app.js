@@ -18,6 +18,7 @@ function MyApp({
   pageProps,
   emotionCache = clientSideEmotionCache,
 }) {
+  const router = useRouter();
 
   useEffect(() => {
     import('react-facebook-pixel')

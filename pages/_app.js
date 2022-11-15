@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { AppContext } from "../components/AppContext";
 import Script from 'next/script';
+import { useRouter } from 'next/router'
 
 const clientSideEmotionCache = createCache({ key: "css" });
 
@@ -17,6 +18,21 @@ function MyApp({
   pageProps,
   emotionCache = clientSideEmotionCache,
 }) {
+
+  useEffect(() => {
+    import('react-facebook-pixel')
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        ReactPixel.init('1244199736145651') // facebookPixelId
+        ReactPixel.pageView()
+
+        router.events.on('routeChangeComplete', () => {
+          ReactPixel.pageView()
+        })
+      })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.events])
+
   useEffect(() => {
     AOS.init({
       easing: "ease-out-cubic",
@@ -33,7 +49,6 @@ function MyApp({
   return (
     <>
       <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
-
       <Script strategy="lazyOnload" id="google-analytics" >
           {`
               window.dataLayer = window.dataLayer || [];

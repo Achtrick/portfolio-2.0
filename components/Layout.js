@@ -6,10 +6,12 @@ import jsCookie from "js-cookie";
 import { useContext } from "react";
 import { Store } from "../utils/store";
 import Footer from "./Footer";
+import { useRouter } from "next/router";
 
 export default function Layout({ title, tags, description, children }) {
   const { state, dispatch } = useContext(Store);
   const { darkMode } = state;
+  const router = useRouter();
 
   const darkModeChangeHandler = () => {
     dispatch({ type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON" });
@@ -72,8 +74,7 @@ export default function Layout({ title, tags, description, children }) {
           crossOrigin="true"
         />
         <link
-          defer
-          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
         <link
@@ -104,13 +105,16 @@ export default function Layout({ title, tags, description, children }) {
         <link rel="canonical" href="https://creo.tn" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="robots" content="index, follow" />
-        <meta name="facebook-domain-verification" content="dwtqsd5gc07a2gwvta6n9b3uexbo59" />
+        <meta
+          name="facebook-domain-verification"
+          content="dwtqsd5gc07a2gwvta6n9b3uexbo59"
+        />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Header setDarkMode={darkModeChangeHandler} darkMode={darkMode} />
         <main>{children}</main>
-        <Footer />
+        {router.pathname === "/" ? null : <Footer />}
       </ThemeProvider>
     </>
   );

@@ -1,6 +1,141 @@
-.introContainer {
+.container {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: #ca6ebe;
+  overflow: hidden;
+  background-color: #0d0119;
+}
+.container img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+.links {
+  position: absolute;
+  top: 40vh;
+  left: 10vw;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.links p {
+  transform: rotate(-90deg);
+  margin: 0px 0px 70px 0px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 93.22%;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+}
+.links img {
+  width: 20px;
+  height: 20px;
+}
+.overlay {
+  position: absolute;
+  top: 30vh;
+  right: 8vw;
+  color: white;
+  width: 50vw;
+  pointer-events: none;
+}
+.overlay h1 {
+  font-weight: 900;
+  font-size: 50px;
+  margin: 0px;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.overlay p {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 170.19%;
+  text-align: justify;
+  text-transform: lowercase;
+  color: #ffffff;
+  margin: 0px;
+}
+.button {
+  position: absolute;
+  bottom: 20vh;
+  left: 41.9vw;
+  width: 50vh;
+}
+.button button {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
+  border-radius: 266px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 124.22%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 20px;
+  transition: all 0.3s;
+}
+.button button:hover {
+  background: rgba(255, 255, 255, 0.521);
+}
+.pagination {
+  position: absolute;
+  font-weight: 900;
+  font-size: 45px;
+  line-height: 109.72%;
+  text-transform: uppercase;
+  color: #ffffff;
+  bottom: 5vh;
+  right: 8vw;
+  width: 50vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (min-width: 1367px) {
+  .overlay h1 {
+    font-size: 80px;
+  }
+  .button {
+    position: absolute;
+    bottom: 30vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    top: 15vh;
+    width: 65vw;
+  }
+  .overlay h1 {
+    font-size: 30px;
+  }
+  .links {
+    top: 40.5vh;
+    left: -1px;
+  }
+  .links img {
+    opacity: 1 !important;
+  }
+  .overlay p {
+    margin-top: 40px;
+  }
+  .container img {
+    opacity: 0.55;
+  }
+  .pagination {
+    font-size: 35px;
+  }
+  .button {
+    bottom: 25vh;
+    left: 26.9vw;
+  }
 }

@@ -1,13 +1,12 @@
-import Layout from "../components/Layout";
-import styles from "../styles/Home.module.css";
+import { CircularProgress } from "@mui/material";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-import PortfolioIntro from "../components/PortfolioIntro";
-import OurPortfolio from "../components/OurPortfolio";
-import ServicesBlock from "../components/ServicesBlock";
-import OurBrochure from "../components/OurBrochure";
-import ContactBlock from "../components/ContactBlock";
+import { useEffect, useState } from "react";
+import Layout from "../components/Layout";
+import styles from "../styles/Portfolio.module.css";
+import client from "../utils/client";
+import { urlFor } from "../utils/image";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -21,6 +20,29 @@ export default function Portfolio(props) {
   const { locale } = useRouter();
   const { t } = useTranslation("common");
 
+  const [projects, setProjects] = useState([]);
+  const [type, setType] = useState("all");
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async () => {
+    var query = `*[_type == "project"]`;
+    if (type !== "all") {
+      query = `*[_type == "project" && type=="${type}"]`;
+    }
+    try {
+      const projects = await client.fetch(query);
+      setProjects(projects);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [type]);
+
+  console.log(projects);
   return (
     <Layout
       title={"Portfolio"}
@@ -157,13 +179,79 @@ export default function Portfolio(props) {
         "website application development company",
       ]}
     >
-      <PortfolioIntro />
-      <OurPortfolio />
-      <ServicesBlock />
-      <OurBrochure />
-      <div style={{ marginBottom: "-150px" }}>
-        <ContactBlock />
-      </div>
+      <section className={styles.container}>
+        <div className={styles.overlay}>
+          <div className={styles.header}>
+            <h1>découvrir nos projets</h1>
+            <div className={styles.menu}>
+              <button
+                onClick={() => setType("all")}
+                className={
+                  type === "all"
+                    ? `${styles.button} ${styles.active}`
+                    : styles.button
+                }
+              >
+                {t("all")}
+              </button>
+              <button
+                onClick={() => setType("design")}
+                className={
+                  type === "design"
+                    ? `${styles.button} ${styles.active}`
+                    : styles.button
+                }
+              >
+                {t("design")}
+              </button>
+              <button
+                onClick={() => setType("cm")}
+                className={
+                  type === "cm"
+                    ? `${styles.button} ${styles.active}`
+                    : styles.button
+                }
+              >
+                {t("cm")}
+              </button>
+              <button
+                onClick={() => setType("development")}
+                className={
+                  type === "development"
+                    ? `${styles.button} ${styles.active}`
+                    : styles.button
+                }
+              >
+                {t("development")}
+              </button>
+            </div>
+            <div className={styles.projects}>
+              {loading ? (
+                <div className="spinner">
+                  <CircularProgress sx={{ color: "#000" }} />
+                </div>
+              ) : (
+                <>
+                  {projects.map((project) => {
+                    return (
+                      <div className={styles.project}>
+                        <div className={styles.body}>
+                          <img
+                            alt={project.name}
+                            src={urlFor(project.image.asset._ref)}
+                          />
+                          <h1>{project.name}</h1>
+                          <p>{project.description}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }

@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { IconButton, Drawer, useMediaQuery, Menu, Modal } from "@mui/material";
-import NextLink from "next/link";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 //import Link from "next/link";
 import SearchIcon from "@mui/icons-material/Search";
-import CircularProgress from "@mui/material/CircularProgress";
+import { IconButton, Modal, useMediaQuery } from "@mui/material";
 import { useTranslation } from "next-i18next";
+import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import styles from "../styles/Navbar.module.css";
 import client from "../utils/client";
 var stringSimilarity = require("string-similarity");
-import styles from "../styles/Navbar.module.css";
-import Link from "next/dist/client/link";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 
 export default function Header(props) {
   //const { darkMode, setDarkMode } = props;
@@ -23,83 +21,40 @@ export default function Header(props) {
   const [scrolled, setScrolled] = useState(false);
   const [query, setQuery] = useState("");
   const [showLangsList, setShowLangsList] = useState(false);
-  const [showServices, setShowServices] = useState(false);
   const [searching, setSearching] = useState(false);
-  const [logo, setLogo] = useState({
-    src: "/images/logo-white.webp",
-    width: 90,
-    height: 24,
-  });
-  const [routes, setRoutes] = useState([
+  const routes = [
     {
-      url: "/services/web&mobile_development",
+      title: "development",
       keywords:
-        "web mobile dev developement développement developement application ",
+        "web mobile dev developement développement developement application javascript responsive agile organized",
     },
     {
-      url: "/services/design&graphisme",
-      keywords: "design graphic graphique chart charte logo affiche  ",
-    },
-    {
-      url: "/services/referencement",
+      title: "design",
       keywords:
-        "referencing referncement référencement seo sao sma smo sponsoring sponsorisé facebook instagram tiktok linkedin twitter ",
+        "design graphic graphique ui ux responsive chart charte logo affiche carte visite",
     },
     {
-      url: "/services/marketing",
-      keywords: "marketing digitale digital ",
-    },
-    {
-      url: "/services/community_management",
+      title: "community-management",
       keywords:
-        "community management page facebook page instagram media média ",
+        "community ads sponsoring compagne publicité management page facebook page instagram media média ",
     },
-  ]);
-
-  let servicesRoutes = [
-    "/services/web&mobile_development",
-    "/services/design&graphisme",
-    "/services/referencement",
-    "/services/marketing",
-    "/services/community_management",
   ];
-
-  const sidebarOpenHandler = () => {
-    setSidebarVisible(true);
-  };
-
-  const sidebarCloseHandler = () => {
-    setSidebarVisible(false);
-  };
-
-  const queryChangeHandler = (e) => {
-    setQuery(e.target.value);
-  };
 
   const submitHandler = async (e) => {
     try {
       e.preventDefault();
       setSearching(true);
       const fetchData = async () => {
-        const articleRoutes = await client.fetch(`*[_type == "news"]`);
-        articleRoutes.map((route) => {
-          routes.push({
-            url: "/news/" + route.slug.current,
-            keywords: route.description,
-          });
-        });
         routes.forEach((route) => {
           stringSimilarity.compareTwoStrings(query, route.keywords) >= 0.15
-            ? router?.push(route.url)
-            : setSearching(false);
+            ? router?.push(`portfolio?title:${route.title}`)
+            : router?.push(`portfolio`);
         });
       };
       if (query) {
         await fetchData();
-        setSidebarVisible(false);
       } else {
         setSearching(false);
-        setSidebarVisible(false);
       }
     } catch (error) {
       console.log(error);
@@ -118,21 +73,64 @@ export default function Header(props) {
       <Modal
         anchor="top"
         open={sidbarVisible}
-        onClose={() => setSidebarVisible(!setSidebarVisible)}
+        onClose={() => setSidebarVisible(!sidbarVisible)}
       >
         <div className={styles.drawer}>
           <div className={styles.mobilelinks}>
             <IconButton
               style={{ color: "#fff" }}
-              onClick={() => setSidebarVisible(!setSidebarVisible)}
+              onClick={() => setSidebarVisible(!sidbarVisible)}
             >
               <CloseIcon />
             </IconButton>
-            <Link href="/">{t("home")}</Link>
-            <Link href="/services">{t("services")}</Link>
-            <Link href="/portfolio">{t("portfolio")}</Link>
-            <Link href="/blog">{t("blog")}</Link>
-            <Link href="/contact">{t("contact")}</Link>
+            <Link href="/">
+              <a
+                onClick={() => setSidebarVisible(!sidbarVisible)}
+                className={router.pathname === "/" ? styles.activeLink : null}
+              >
+                {t("home")}
+              </a>
+            </Link>
+            <Link href="/services">
+              <a
+                onClick={() => setSidebarVisible(!sidbarVisible)}
+                className={
+                  router.pathname === "/services" ? styles.activeLink : null
+                }
+              >
+                {t("services")}
+              </a>
+            </Link>
+            <Link href="/portfolio">
+              <a
+                onClick={() => setSidebarVisible(!sidbarVisible)}
+                className={
+                  router.pathname === "/portfolio" ? styles.activeLink : null
+                }
+              >
+                {t("portfolio")}
+              </a>
+            </Link>
+            <Link href="/blog">
+              <a
+                onClick={() => setSidebarVisible(!sidbarVisible)}
+                className={
+                  router.pathname === "/blog" ? styles.activeLink : null
+                }
+              >
+                {t("blog")}
+              </a>
+            </Link>
+            <Link href="/contact">
+              <a
+                onClick={() => setSidebarVisible(!sidbarVisible)}
+                className={
+                  router.pathname === "/contact" ? styles.activeLink : null
+                }
+              >
+                {t("contact")}
+              </a>
+            </Link>
           </div>
         </div>
       </Modal>
@@ -141,7 +139,10 @@ export default function Header(props) {
           backgroundColor:
             router.pathname !== "/" && router.pathname !== "/services"
               ? "#000"
+              : scrolled
+              ? "#000"
               : null,
+          transition: "all 0.3s",
         }}
         className={styles.navbar}
       >
@@ -163,11 +164,45 @@ export default function Header(props) {
           </Link>
         </div>
         <div className={styles.links}>
-          <Link href="/">{t("home")}</Link>
-          <Link href="/services">{t("services")}</Link>
-          <Link href="/portfolio">{t("portfolio")}</Link>
-          <Link href="/blog">{t("blog")}</Link>
-          <Link href="/contact">{t("contact")}</Link>
+          <Link href="/">
+            <a className={router.pathname === "/" ? styles.activeLink : null}>
+              {t("home")}
+            </a>
+          </Link>
+          <Link href="/services">
+            <a
+              className={
+                router.pathname === "/services" ? styles.activeLink : null
+              }
+            >
+              {t("services")}
+            </a>
+          </Link>
+          <Link href="/portfolio">
+            <a
+              className={
+                router.pathname === "/portfolio" ? styles.activeLink : null
+              }
+            >
+              {t("portfolio")}
+            </a>
+          </Link>
+          <Link href="/blog">
+            <a
+              className={router.pathname === "/blog" ? styles.activeLink : null}
+            >
+              {t("blog")}
+            </a>
+          </Link>
+          <Link href="/contact">
+            <a
+              className={
+                router.pathname === "/contact" ? styles.activeLink : null
+              }
+            >
+              {t("contact")}
+            </a>
+          </Link>
         </div>
         <div className={styles.lang}>
           <form onSubmit={submitHandler} style={{ display: "flex" }}>
@@ -197,6 +232,7 @@ export default function Header(props) {
                 : "english"
               : null}
           </p>
+          &nbsp; &nbsp;
           <div
             className={
               showLangsList

@@ -77,11 +77,6 @@ export default function Layout({ title, tags, description, children }) {
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
-        <link
-          defer
-          href="https://fonts.cdnfonts.com/css/hastafi-personal-use-only"
-          rel="stylesheet"
-        />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.webp" />
         <link
           rel="icon"

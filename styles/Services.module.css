@@ -1,251 +1,122 @@
-.intro {
+.container {
+  width: 100%;
   position: relative;
-  height: 100vh;
-  background-color: #faedff;
-  overflow: clip;
 }
-.intro img {
-  object-fit: cover;
-  width: 60%;
+.container img {
+  width: 100%;
+  margin-bottom: -10px;
 }
-.intro .row {
+.swiper {
+  width: 80%;
+  margin: 50px 10%;
+}
+.partner {
+  width: calc(100%);
+  display: flex;
+  justify-content: center;
+}
+.partner img {
+  width: 45%;
+  filter: grayscale(100%);
+  transition: all 0.3s;
+}
+.partner img:hover {
+  filter: none;
+}
+.overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0vh;
+  left: 0px;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 80px;
+  padding: 200px 150px;
+  background-color: rgba(0, 0, 0, 0.253);
 }
-.col50 {
-  width: 50%;
-  padding: 40px;
+.hr {
+  width: 40%;
+  height: 1px;
+  background-color: white;
+  transition: all 0.3s;
 }
-.col50 h1 {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 109.72%;
-  letter-spacing: 0.085em;
-  text-transform: uppercase;
-  color: #312782;
-}
-.col50 h2 {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 145.69%;
-  letter-spacing: 0.17em;
-  color: #312782;
-}
-.col50 img {
-  margin-top: -50px;
-  width: 120%;
-}
-.imgHolder {
-  background-color: #f9f6fa;
-  border-radius: 50%;
-  margin-left: 200px;
-  height: 50vh;
-  width: 50vh;
-}
-.section1 {
+.row {
   width: 100%;
-  padding: 0px 100px 0px 100px;
-  margin: 100px 0px 150px 0px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-start;
+  margin: 100px 0px;
 }
-.section1 img {
-  width: 100%;
-  height: 100px;
-}
-.section1 h1 {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 109.72%;
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.085em;
-  text-transform: uppercase;
-  color: #312782;
-}
-.section1 p {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 145.69%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.17em;
-  color: #4f4f4f;
-}
-
-.section2 {
-  padding: 50px;
-  width: 100%;
-}
-.section2 .col {
-  margin-top: -100px;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-}
-.section2 .imgHolder {
-  width: 150px;
-  height: 150px;
-  background-image: linear-gradient(
-    180deg,
-    #faedff 0%,
-    rgba(250, 237, 255, 0) 100%
-  );
-  border-radius: 50%;
-  border: 1px solid#312782;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0px;
-}
-.section2 .col img {
-  width: 80%;
-}
-.section2 .even {
-  display: flex;
-  width: 100%;
+.row:nth-of-type(2) {
   justify-content: flex-end;
 }
-.section2 .col h1 {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 145.69%;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-  color: #312782;
-  text-align: center;
-}
-.section2 .col p {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 145.69%;
-  letter-spacing: 0.17em;
-  color: #312782;
-}
-/* DOTTED LINE */
-.chart {
-  width: 100%;
-  background: rgba(255, 255, 255, 0);
-  border-radius: 5px;
+.col {
+  width: 45%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
-.chart svg {
-  height: 100%;
+.title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
-.chart svg line {
-  stroke: rgba(49, 39, 131, 1);
-  stroke-width: 3px;
-  stroke-linecap: round;
-  stroke-dasharray: 2px 20px;
-  animation: animateline 5s linear both infinite;
+.title h1 {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 109.72%;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: #ffffff;
 }
-
-@-moz-keyframes animateline {
-  from {
-    stroke-dashoffset: 0;
-  }
-  to {
-    stroke-dashoffset: -5rem;
-  }
+.title h1:nth-of-type(1) {
+  margin-right: 20px;
+  -webkit-text-stroke: 2px #d9027e;
+  color: transparent;
 }
-@-webkit-keyframes animateline {
-  from {
-    stroke-dashoffset: 0;
-  }
-  to {
-    stroke-dashoffset: -5rem;
-  }
+.description {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 178.19%;
+  color: #ffffff;
+  transition: all 0.8s;
 }
-@-o-keyframes animateline {
-  from {
-    stroke-dashoffset: 0;
-  }
-  to {
-    stroke-dashoffset: -5rem;
-  }
+.col:hover .hr {
+  width: 80%;
 }
-@keyframes animateline {
-  from {
-    stroke-dashoffset: 0;
+@media (min-width: 1367px) {
+  .title h1 {
+    font-size: 60px;
   }
-  to {
-    stroke-dashoffset: -5rem;
+  .description {
+    font-size: 20px;
   }
 }
-
 @media (max-width: 768px) {
-  .intro {
-    height: 70vh;
-    overflow: visible;
-    margin-bottom: 400px;
+  .container img {
+    height: 100%;
+    width: auto;
   }
-  .intro img {
-    object-fit: cover;
-    height: 70vh;
+  .overlay {
+    padding: 150px 15px;
+    background-color: rgba(0, 0, 0, 0.253);
+  }
+  .title h1 {
+    font-size: 25px;
+  }
+  .col {
     width: 100%;
+  }
+  .description {
+    font-size: 17px;
+  }
+  .partner img {
+    width: 70%;
   }
   .row {
-    flex-direction: column;
+    margin: 200px 0px;
   }
-  .row:nth-of-type(1) {
-    margin-top: 150px;
-  }
-  .col50:nth-of-type(2) {
-    margin-top: -50px;
-  }
-  .col50 {
-    width: 100%;
-    padding: 30px;
-  }
-  .col50 h1 {
-    font-size: 24px;
-  }
-  .col50 h2 {
-    font-size: 14px;
-  }
-  .col50 img {
-    margin-top: 0px;
-    width: 100%;
-    height: auto;
-  }
-  .imgHolder {
-    background-color: #f9f6fa;
-    border-radius: 50%;
-    margin-left: 0px;
-    height: 40vh;
-    width: 40vh;
-  }
-  .section1 {
-    padding: 20px;
-    margin: 100px 0px -80px 0px;
-  }
-  .section2 .col {
-    width: 100%;
-    padding: 0px;
-    margin-top: 0px;
-  }
-  .section2 .col h1 {
-    font-size: 15px;
-  }
+
 }

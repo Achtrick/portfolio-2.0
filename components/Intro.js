@@ -32,7 +32,6 @@ export default function Intro(props) {
         mousewheel={true}
         onSlideChange={(e) => setactiveIndex(e.activeIndex + 1)}
         effect={"flip"}
-        autoplay={pathname === "/"}
         pagination={{
           clickable: true,
         }}
@@ -79,7 +78,7 @@ export default function Intro(props) {
         <a target="_blank" href="https://www.instagram.com/creo_consulting/">
           <img alt="creo-instagram" src={"/" + "./images/instagram.webp"} />
         </a>
-        <a target="_blank" href="https://www.facebook.com/CreoSousse">
+        <a target="_blank" href="https://www.twitter.com/CreoSousse">
           <img alt="creo-twitter" src={"/" + "./images/twitter.webp"} />
         </a>
         <a
@@ -88,7 +87,7 @@ export default function Intro(props) {
         >
           <img alt="creo-linkedin" src={"/" + "./images/linkedin.webp"} />
         </a>
-        <a target="_blank" href="https://www.facebook.com/CreoSousse">
+        <a target="_blank" href="https://www.youtube.com/channel/CreoSousse">
           <img alt="creo-youtube" src={"/" + "./images/youtube.webp"} />
         </a>
       </div>

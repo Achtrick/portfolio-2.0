@@ -232,7 +232,7 @@ function Services(props) {
       ]}
     >
       <div className={styles.container}>
-        <img alt="creo-services" src={"/" + "./images/services.png"} />
+        <img alt="creo-services" src={"/" + "./images/services.webp"} />
         <div className={styles.overlay}>
           <div className={styles.row}>
             <div className={styles.col}>

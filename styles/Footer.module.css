@@ -1,6 +1,7 @@
 .footer {
   width: 100%;
   display: flex;
+  font-family: "Outfit";
   flex-direction: column;
 }
 .row {
@@ -68,7 +69,9 @@
   background-color: rgb(170, 170, 170);
   height: 1px;
 }
-
+.col30:nth-of-type(1) p {
+  cursor: pointer;
+}
 @media (max-width: 768px) {
   .row {
     flex-direction: column;

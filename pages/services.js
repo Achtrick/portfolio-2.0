@@ -15,20 +15,30 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { useTranslation } from "next-i18next";
-import { Alert, CircularProgress, useMediaQuery } from "@mui/material";
+import { CircularProgress, useMediaQuery } from "@mui/material";
 import client from "../utils/client";
 import { urlFor } from "../utils/image";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+}
 
 function Services(props) {
   const { t } = useTranslation("common");
   const [partners, setPartners] = useState([]);
   const [loading, setLoading] = useState(true);
   const isMobile = useMediaQuery("(max-width:768px)");
-  SwiperCore.use([Autoplay]);
 
   const fetchData = async () => {
     try {
-      const partners = await client.fetch(`*[_type == "partener"]`);
+      const partners = await client.fetch(
+        `*[_type == "partener" && isActive == true] | order(order asc)`
+      );
       setPartners(partners);
       setLoading(false);
     } catch (error) {
@@ -229,22 +239,17 @@ function Services(props) {
               <div className={styles.title}>
                 <h1>01</h1>
                 <h1>
-                  développement
+                  {t("development")}
                   <br /> web/mobile
                 </h1>
               </div>
               <div className={styles.hr} />
               <div className={styles.description}>
-                <p>
-                  -Création des sites web : vitrine, catalogue, ecommerce...
-                </p>
-                <p>
-                  -Développement des applications web : PWA Progressive
-                  Webapplication
-                </p>
-                <p>-Développement des applications mobile</p>
-                <p> -Hébergement</p>
-                <p>-Maintenance Référencement SEA SEO </p>
+                <p>{t("dev_service_1")}</p>
+                <p> {t("dev_service_2")}</p>
+                <p>{t("dev_service_3")}</p>
+                <p>{t("dev_service_4")}</p>
+                <p>{t("dev_service_5")}</p>
                 <p>-UX/UI</p>
               </div>
             </div>
@@ -260,9 +265,9 @@ function Services(props) {
               </div>
               <div className={styles.hr} />
               <div className={styles.description}>
-                <p>-Gestion des réseaux sociaux </p>
-                <p>-Création de contenu : Shooting et editing</p>
-                <p>-Campagnes publicitaires : Ads (Facebook, Google...)</p>
+                <p>{t("cm_service_1")}</p>
+                <p>{t("cm_service_2")}</p>
+                <p>{t("cm_service_3")}</p>
               </div>
             </div>
           </div>
@@ -271,14 +276,14 @@ function Services(props) {
               <div className={styles.title}>
                 <h1>03</h1>
                 <h1>
-                  design et
-                  <br /> graphisme
+                  {t("design&")}
+                  <br /> {t("graphics")}
                 </h1>
               </div>
               <div className={styles.hr} />
               <div className={styles.description}>
-                <p>-Création des identité visuelle</p>
-                <p>-Conception des supports : communication et exposition</p>
+                <p>{t("design_service_1")}</p>
+                <p>{t("design_service_2")}</p>
               </div>
             </div>
           </div>

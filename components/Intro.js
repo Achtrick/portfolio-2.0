@@ -20,7 +20,6 @@ import { useMediaQuery } from "@mui/material";
 export default function Intro(props) {
   const { t } = useTranslation("common");
   const [activeIndex, setactiveIndex] = useState(1);
-  SwiperCore.use([Autoplay]);
   const { pathname } = useRouter();
   const isMobile = useMediaQuery("(max-width:768px)");
 
@@ -28,8 +27,9 @@ export default function Intro(props) {
     <section className={styles.container}>
       <Swiper
         style={{ zIndex: "0" }}
-        modules={[EffectFlip, Mousewheel, Pagination]}
+        modules={[EffectFlip, Mousewheel, Pagination, Autoplay]}
         mousewheel={true}
+        autoplay
         onSlideChange={(e) => setactiveIndex(e.activeIndex + 1)}
         effect={"flip"}
         pagination={{

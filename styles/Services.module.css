@@ -16,8 +16,10 @@
   justify-content: center;
 }
 .partner img {
-  width: 45%;
+  width: 48%;
+  aspect-ratio: 3/2;
   filter: grayscale(100%);
+  object-fit: contain;
   transition: all 0.3s;
 }
 .partner img:hover {
@@ -118,5 +120,4 @@
   .row {
     margin: 200px 0px;
   }
-
 }

@@ -8,6 +8,7 @@
   position: fixed;
   z-index: 1000;
   color: white;
+  font-family: "Outfit";
 }
 .logo {
   width: 10%;
@@ -75,7 +76,7 @@
 }
 .open {
   opacity: 1;
-  top: 30px;
+  top: 25px;
   transition: all 0.3s;
 }
 .openDrawer {
@@ -110,6 +111,9 @@
 @media (max-width: 768px) {
   .links {
     display: none;
+  }
+  .langmenu {
+    right: 10px;
   }
   .navbar {
     padding: 10px;

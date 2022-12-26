@@ -36,8 +36,8 @@ select:focus {
 }
 
 .button {
-  background-color: var(--color-4);
-  color: var(--main-color); 
+  background-color: black;
+  color: white; 
   padding: 8px 15px;
   width: 150px;
   text-align: center;
@@ -46,14 +46,15 @@ select:focus {
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  transition: all 0.5s;
+  transition: all 0.3s;
   margin: 0;
-  box-shadow: var(--shadow);
+  border: 1px solid black;
 }
 
 .button:hover, .button:focus, .button.active {
-  background-color: var(--color-5);
-  color: var(--second-color);
+  border: 1px solid black;
+  background-color: white;
+  color: black ; 
 }
 
 
@@ -1245,7 +1246,7 @@ select:focus {
 
 .form_container {
   width: 100%;
-  padding: 0 8% 50px;
+  padding: 0 10% 50px;
 }
 
 .form_row {
@@ -1259,19 +1260,24 @@ select:focus {
   width: 31%;
 }
 
+.form_colx2 {
+  width: 65.5%;
+}
+
 .form_input {
   width: 100%;
   padding: 10px 15px;
   border: 1px solid #EEE;
   border-radius: 0;
   margin-bottom: 20px;
-  font-size: 1.2rem;
-  color: #444;
+  font-size: 1.2rem;  
+  background-color: transparent;
+  color: rgb(0, 0, 0);
   letter-spacing: 1px;
-  border-bottom: 1px solid rgba(216, 165, 238, 0.5);
-  border-top: none;
-  border-right: none;
-  border-left: none;
+  border: 1px solid #000 ;   
+  backdrop-filter: blur(2px);
+  border-radius: 30px;
+  font-family: "Outfit";
 }
 .form_input_field{
   width: 100%;
@@ -1279,22 +1285,24 @@ select:focus {
   border: 1px solid #EEE;
   border-radius: 0;
   margin-bottom: 20px;
+  background-color: transparent;
   font-size: 1.2rem;
-  color: #444;
+  color: rgb(0, 0, 0);
   letter-spacing: 1px;
-  border:none;
-  background: #F4F2F2;
+  border: 1px solid #000000;
+  backdrop-filter: blur(2px);
   border-radius: 30px;
+  font-family: "Outfit";
 }
 
 .form_actions {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.form_actions p{
+.form_col p{
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
@@ -1302,7 +1310,8 @@ select:focus {
   letter-spacing: 0.105em;
   text-decoration-line: underline;
   text-transform: uppercase;
-  color: #312782;
+  color: black;
+  margin: 20px 100px;
 }
 
 .contactMap_container {
@@ -1353,6 +1362,9 @@ background-color: white  !important;
     font-size: 2.3rem;
     line-height: 3rem;
     margin-bottom: 25px;
+  }.form_col p{
+    width: 100%;
+    margin: 0px 0px 20px 0px;
   }
   .intro_content {
     width: 80%;
@@ -1481,6 +1493,10 @@ background-color: white  !important;
     width: 100%;
     padding: 0;
   }
+  .form_colx2 {
+    width: 100%;
+    padding: 0;
+  }
   .contactMap_container {
     flex-direction: column;
   }
@@ -1493,5 +1509,3 @@ background-color: white  !important;
     padding: 0;
   }
 }
-
-@import "bules.css";

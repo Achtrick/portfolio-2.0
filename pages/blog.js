@@ -4,7 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
-import styles from "../styles/Portfolio.module.css";
+import styles from "../styles/Blog.module.css";
 import client from "../utils/client";
 import { urlFor } from "../utils/image";
 
@@ -17,22 +17,14 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function Portfolio(props) {
-  const router = useRouter();
-  const { service } = router.query;
   const { t } = useTranslation("common");
-
-  const [projects, setProjects] = useState([]);
-  const [type, setType] = useState("all");
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
-    var query = `*[_type == "project"]`;
-    if (type !== "all") {
-      query = `*[_type == "project" && type=="${type}"]`;
-    }
     try {
-      const projects = await client.fetch(query);
-      setProjects(projects);
+      const data = await client.fetch(`*[_type == "news"]`);
+      setArticles(data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -41,16 +33,12 @@ export default function Portfolio(props) {
 
   useEffect(() => {
     fetchData();
-  }, [type]);
-
-  useEffect(() => {
-    if (router.isReady && service) setType(service);
-  }, [router.isReady, router]);
+  }, []);
 
   return (
     <Layout
-      title={"Portfolio"}
-      description="Creo - Our partners and projects reflects our hard work and dedication"
+      title="Blog"
+      description="Creo - Your portal for latest news and technologies in the web design and development"
       tags={[
         "creo",
         "digital",
@@ -186,68 +174,39 @@ export default function Portfolio(props) {
       <section className={styles.container}>
         <div className={styles.overlay}>
           <div className={styles.header}>
-            <h1>{t("discover_our_projects")}</h1>
-            <div className={styles.menu}>
-              <button
-                onClick={() => setType("all")}
-                className={
-                  type === "all"
-                    ? `${styles.button} ${styles.active}`
-                    : styles.button
-                }
-              >
-                {t("all")}
-              </button>
-              <button
-                onClick={() => setType("design")}
-                className={
-                  type === "design"
-                    ? `${styles.button} ${styles.active}`
-                    : styles.button
-                }
-              >
-                {t("design")}
-              </button>
-              <button
-                onClick={() => setType("cm")}
-                className={
-                  type === "cm"
-                    ? `${styles.button} ${styles.active}`
-                    : styles.button
-                }
-              >
-                {t("cm")}
-              </button>
-              <button
-                onClick={() => setType("development")}
-                className={
-                  type === "development"
-                    ? `${styles.button} ${styles.active}`
-                    : styles.button
-                }
-              >
-                {t("development")}
-              </button>
-            </div>
-            <div className={styles.projects}>
+            <h1>{t("news")}</h1>
+            <div className={styles.articles}>
               {loading ? (
                 <div className="spinner">
                   <CircularProgress sx={{ color: "#000" }} />
                 </div>
               ) : (
                 <>
-                  {projects.map((project) => {
+                  {articles.map((article) => {
                     return (
-                      <div key={project._id} className={styles.project}>
+                      <div key={article._id} className={styles.article}>
                         <div className={styles.body}>
-                          <a target="_blank" href={project.link}>
+                          <a target="_blank" href={article.link}>
                             <img
-                              alt={project.name}
-                              src={urlFor(project.image.asset._ref)}
+                              alt={article.title}
+                              src={urlFor(article.image.asset._ref)}
                             />
+                            <div className={styles.imgOverlay}>
+                              <img
+                                alt={article.title}
+                                src={"/" + "./images/link.png"}
+                              />
+                            </div>
                           </a>
-                          <h1>{project.name}</h1>
-                          <p>{project.description}</p>
+                          <h1>{article.title}</h1>
+                          <p>
+                            {article.description.length > 100
+                              ? article.description.slice(0, 100) + "..."
+                              : article.description}
+                          </p>
+                          <a className={styles.button} href={article.link}>
+                            {t("visit")}
+                          </a>
                         </div>
                       </div>
                     );

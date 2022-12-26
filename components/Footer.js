@@ -13,9 +13,15 @@ export default function Footer() {
       <div className={styles.row}>
         <div className={styles.col30}>
           <h1>{t("our_services")}</h1>
-          <p>{t("community_management")}</p>
-          <p>{t("design_graphic")}</p>
-          <p>{t("marketing_strategy")}</p>
+          <NextLink href={`/portfolio?service=development`}>
+            <p>{t("development") + " (web / mobile)"}</p>
+          </NextLink>
+          <NextLink href={`/portfolio?service=design`}>
+            <p>{t("design_graphic")}</p>
+          </NextLink>
+          <NextLink href={`/portfolio?service=cm`}>
+            <p>{t("community_management")}</p>
+          </NextLink>
         </div>
         <div className={styles.col30}>
           <h1>{t("our_contacts")}</h1>

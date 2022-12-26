@@ -1,28 +1,69 @@
-import Layout from '../components/Layout'
-import styles from '../styles/Home.module.css'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
-import ContactIntro from '../components/ContactIntro';
-import ContacttUs from '../components/ContactUs';
-import ContactForm from '../components/ContactForm';
-import ContactMap from '../components/ContactMap';
+import Layout from "../components/Layout";
+import styles from "../styles/Contact.module.css";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import emailjs from "emailjs-com";
+import axios from "axios";
+import { useState } from "react";
 
-export async function getStaticProps({locale}) {
+export async function getStaticProps({ locale }) {
   return {
-      props: {
-          ...(await serverSideTranslations( locale, ['common'] )),
-      }
-  }
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
 }
 
 export default function About(props) {
-  const { locale } = useRouter();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+    cv: "",
+    fileName: "",
+  });
+
+  const [feedback, setFeedback] = useState("");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    var templateParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      message: formData.message,
+    };
+    const serviceID = "service_dyozx05";
+    const templateID = "template_usjk0sm";
+    const userID = "user_aew1XU7c2JP3topXNbU9p";
+    try {
+      axios.post("/api/uploadCv", { email: formData.email, cv: formData.cv });
+      emailjs.send(serviceID, templateID, templateParams, userID);
+      setFeedback("Votre email est envoyée !");
+      document.getElementById("feedback").style.color = "green";
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        fileName: "",
+      });
+    } catch (error) {
+      setFeedback("échec ! réessayer ultérieurement");
+      document.getElementById("feedback").style.color = "#F00";
+    }
+  };
 
   return (
-    <Layout title={"Contact"} 
-      description="Creo - Don't hesitate to contact us to ask for a quote or any question that comes to mind." 
+    <Layout
+      title={"Contact"}
+      description="Creo - Don't hesitate to contact us to ask for a quote or any question that comes to mind."
       tags={[
         "creo",
         "digital",
@@ -153,12 +194,130 @@ export default function About(props) {
         "web mobile development and marketing",
         " web and mobile application development company",
         "website application development company",
-      ]} 
+      ]}
     >
-      <ContactIntro />
-      <ContacttUs />
-      <ContactForm />
-      <ContactMap />
+      <section className={styles.container}>
+        <div className={styles.overlay}>
+          <div className={styles.header}>
+            <h1>{t("leave_us_a_message")}</h1>
+          </div>
+          <div className="form_container">
+            <form onSubmit={(e) => sendEmail(e)}>
+              <div className="form_row">
+                <div className="form_col">
+                  <label>{t("contact_name")}</label>
+                  <input
+                    value={formData.name}
+                    required
+                    className="form_input"
+                    type="text"
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="form_col">
+                  <label>{t("contact_email")}</label>
+                  <input
+                    value={formData.email}
+                    required
+                    className="form_input"
+                    type="email"
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="form_col">
+                  <label>{t("contact_phone")}</label>
+                  <input
+                    value={formData.phone}
+                    required
+                    className="form_input"
+                    type="number"
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                  />
+                </div>
+              </div>
+              <div className="form_row">
+                <div className="form_col">
+                  <label>{t("contact_subject")}</label>
+                  <input
+                    value={formData.subject}
+                    required
+                    className="form_input"
+                    type="text"
+                    onChange={(e) =>
+                      setFormData({ ...formData, subject: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="form_colx2">
+                  <label>{t("contact_message")}</label>
+                  <textarea
+                    value={formData.message}
+                    required
+                    className="form_input_field"
+                    type="text"
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                  />
+                </div>
+              </div>
+              <div className="form_row">
+                <div className="form_col">
+                  <input
+                    id="file"
+                    hidden
+                    accept="application/pdf,application/vnd.ms-excel"
+                    className="form_input"
+                    type="file"
+                    placeholder={t("contact_company")}
+                    onChange={(e) => {
+                      let reader = new FileReader();
+                      reader.readAsDataURL(e.target.files[0]);
+                      reader.onload = (evt) => {
+                        setFormData({
+                          ...formData,
+                          cv: evt.target.result,
+                          fileName: e.target.files[0].name,
+                        });
+                      };
+                    }}
+                  />
+                  <label htmlFor="file">
+                    <p>
+                      {formData.fileName != ""
+                        ? formData.fileName
+                        : t("join_file")}
+                    </p>
+                  </label>
+                </div>
+                <div className="form_colx2">
+                  <p>
+                    <button className="button" type="submit">
+                      {t("contact_button")}
+                    </button>
+                  </p>
+                  <p id="feedback">{feedback}</p>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div className={styles.maps}>
+            <iframe
+              width="100%"
+              height="300"
+              frameborder="0"
+              scrolling="no"
+              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=RJPJ+7X4,%20Rue%20de%20Constantine,%20Sousse+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            />
+          </div>
+        </div>
+      </section>
     </Layout>
-  )
+  );
 }

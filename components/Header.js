@@ -1,6 +1,5 @@
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-//import Link from "next/link";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton, Modal, useMediaQuery } from "@mui/material";
 import { useTranslation } from "next-i18next";
@@ -8,11 +7,9 @@ import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Navbar.module.css";
-import client from "../utils/client";
 var stringSimilarity = require("string-similarity");
 
 export default function Header(props) {
-  //const { darkMode, setDarkMode } = props;
   const router = useRouter();
   const { locale, asPath } = useRouter();
   const { t } = useTranslation("common");
@@ -26,7 +23,7 @@ export default function Header(props) {
     {
       title: "development",
       keywords:
-        "web mobile dev developement développement developement application javascript responsive agile organized",
+        "web mobile dev developement application javascript responsive agile organized",
     },
     {
       title: "design",
@@ -34,7 +31,7 @@ export default function Header(props) {
         "design graphic graphique ui ux responsive chart charte logo affiche carte visite",
     },
     {
-      title: "community-management",
+      title: "cm",
       keywords:
         "community ads sponsoring compagne publicité management page facebook page instagram media média ",
     },
@@ -45,10 +42,22 @@ export default function Header(props) {
       e.preventDefault();
       setSearching(true);
       const fetchData = async () => {
+        var max = { x: 0, title: "" };
         routes.forEach((route) => {
-          stringSimilarity.compareTwoStrings(query, route.keywords) >= 0.15
-            ? router?.push(`portfolio?title:${route.title}`)
-            : router?.push(`portfolio`);
+          console.log(
+            stringSimilarity.compareTwoStrings(query, route.keywords)
+          );
+          if (
+            stringSimilarity.compareTwoStrings(query, route.keywords) > max.x
+          ) {
+            max.x = stringSimilarity.compareTwoStrings(query, route.keywords);
+            max.title = route.title;
+          }
+          if (max.x !== 0) {
+            router?.push(`portfolio?service=${max.title}`);
+          } else {
+            router?.push(`portfolio`);
+          }
         });
       };
       if (query) {

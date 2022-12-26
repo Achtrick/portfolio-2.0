@@ -240,7 +240,7 @@ export default function Portfolio(props) {
                     return (
                       <div key={project._id} className={styles.project}>
                         <div className={styles.body}>
-                          <a target="_blank" href={project.link}>
+                          <a target="_blank" rel="noreferrer" href={project.link}>
                             <img
                               alt={project.name}
                               src={urlFor(project.image.asset._ref)}

@@ -186,7 +186,7 @@ export default function Portfolio(props) {
                     return (
                       <div key={article._id} className={styles.article}>
                         <div className={styles.body}>
-                          <a target="_blank" href={article.link}>
+                          <a target="_blank" rel="noreferrer" href={article.link}>
                             <img
                               alt={article.title}
                               src={urlFor(article.image.asset._ref)}

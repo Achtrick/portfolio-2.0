@@ -72,22 +72,22 @@ export default function Intro(props) {
 
       <div className={styles.links}>
         <p>{t("follow_us")}</p>
-        <a target="_blank" href="https://www.facebook.com/CreoSousse">
+        <a target="_blank" rel="noreferrer" href="https://www.facebook.com/CreoSousse">
           <img alt="creo-facebook" src={"/" + "./images/facebook.webp"} />
         </a>
-        <a target="_blank" href="https://www.instagram.com/creo_consulting/">
+        <a target="_blank" rel="noreferrer" href="https://www.instagram.com/creo_consulting/">
           <img alt="creo-instagram" src={"/" + "./images/instagram.webp"} />
         </a>
-        <a target="_blank" href="https://www.twitter.com/CreoSousse">
+        <a target="_blank" rel="noreferrer" href="https://www.twitter.com/CreoSousse">
           <img alt="creo-twitter" src={"/" + "./images/twitter.webp"} />
         </a>
         <a
-          target="_blank"
+          target="_blank" rel="noreferrer"
           href="https://www.linkedin.com/company/creo-tn/mycompany/"
         >
           <img alt="creo-linkedin" src={"/" + "./images/linkedin.webp"} />
         </a>
-        <a target="_blank" href="https://www.youtube.com/channel/CreoSousse">
+        <a target="_blank" rel="noreferrer" href="https://www.youtube.com/channel/CreoSousse">
           <img alt="creo-youtube" src={"/" + "./images/youtube.webp"} />
         </a>
       </div>

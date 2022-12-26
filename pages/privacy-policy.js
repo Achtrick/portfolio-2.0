@@ -3,9 +3,6 @@ import styles from "../styles/Home.module.css";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import AboutIntro from "../components/AboutIntro";
-import AboutUs from "../components/AboutUs";
-import AboutResume from "../components/AboutResume";
 import Link from "next/link";
 
 export async function getStaticProps({ locale }) {

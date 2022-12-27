@@ -7,6 +7,10 @@ export default {
       name: "type",
       title: "Type",
       type: "string",
+      options: {
+        list: ["development", "cm", "design"],
+        layout: "select",
+      },
     },
     {
       name: "name",
@@ -35,6 +39,19 @@ export default {
       options: {
         layout: "tags",
       },
+    },
+    {
+      title: "Gallery",
+      name: "gallery",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
     },
     {
       name: "image",

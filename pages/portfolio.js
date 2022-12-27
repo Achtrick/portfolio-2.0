@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Modal } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
@@ -7,6 +7,8 @@ import Layout from "../components/Layout";
 import styles from "../styles/Portfolio.module.css";
 import client from "../utils/client";
 import { urlFor } from "../utils/image";
+import CloseIcon from "@mui/icons-material/Close";
+import { color } from "@mui/system";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -24,6 +26,8 @@ export default function Portfolio(props) {
   const [projects, setProjects] = useState([]);
   const [type, setType] = useState("all");
   const [loading, setLoading] = useState(true);
+  const [openProject, setOpenProject] = useState(false);
+  const [project, setProject] = useState(true);
 
   const fetchData = async () => {
     var query = `*[_type == "project"]`;
@@ -183,6 +187,28 @@ export default function Portfolio(props) {
         "website application development company",
       ]}
     >
+      {openProject ? (
+        <div className={styles.close}>
+          <CloseIcon
+            style={{ color: "#000" }}
+            onClick={() => setOpenProject(false)}
+          />
+        </div>
+      ) : null}
+      <Modal open={openProject} onClose={() => setOpenProject(false)}>
+        <div className={styles.gallery}>
+          <div className={styles.images}>
+            {project.gallery?.map((img) => {
+              return (
+                <img
+                  alt={`creo - ${project.title}`}
+                  src={urlFor(img.asset._ref)}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </Modal>
       <section className={styles.container}>
         <div className={styles.overlay}>
           <div className={styles.header}>
@@ -240,12 +266,15 @@ export default function Portfolio(props) {
                     return (
                       <div key={project._id} className={styles.project}>
                         <div className={styles.body}>
-                          <a target="_blank" rel="noreferrer" href={project.link}>
-                            <img
-                              alt={project.name}
-                              src={urlFor(project.image.asset._ref)}
-                            />
-                          </a>
+                          <img
+                            style={{ cursor: "pointer" }}
+                            onClick={() => {
+                              setProject(project);
+                              setOpenProject(true);
+                            }}
+                            alt={project.name}
+                            src={urlFor(project.image.asset._ref)}
+                          />
                           <h1>{project.name}</h1>
                           <p>{project.description}</p>
                         </div>

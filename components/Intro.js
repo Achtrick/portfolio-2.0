@@ -3,12 +3,7 @@ import { useTranslation } from "next-i18next";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {
-  EffectFlip,
-  Autoplay,
-  Mousewheel,
-  Pagination,
-} from "swiper";
+import { EffectFlip, Autoplay, Mousewheel, Pagination } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -20,7 +15,6 @@ import { useMediaQuery } from "@mui/material";
 export default function Intro(props) {
   const { t } = useTranslation("common");
   const [activeIndex, setactiveIndex] = useState(1);
-  const { pathname } = useRouter();
   const isMobile = useMediaQuery("(max-width:768px)");
 
   return (

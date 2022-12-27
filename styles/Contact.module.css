@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   background: linear-gradient(90deg, #d4d4d4 0%, #d9d9d9 100%);
+  min-height: 120vh;
 }
 .overlay {
   width: 100%;

@@ -37,7 +37,7 @@
 .overlay {
   position: absolute;
   top: 30vh;
-  right: 8vw;
+  right: 150px;
   color: white;
   width: 50vw;
   pointer-events: none;
@@ -62,8 +62,11 @@
 .button {
   position: absolute;
   bottom: 20vh;
-  left: 41.9vw;
-  width: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0vw;
+  width: 100vw;
 }
 .button button {
   font-family: "Outfit";
@@ -82,7 +85,8 @@
   border: none;
   cursor: pointer;
   padding: 10px 20px;
-  margin-top: 20px;
+  margin-top: 25px;
+  margin-left: -160px;
   transition: all 0.3s;
 }
 .button button:hover {
@@ -96,7 +100,7 @@
   text-transform: uppercase;
   color: #ffffff;
   bottom: 5vh;
-  right: 8vw;
+  right: 10vw;
   width: 50vw;
   display: flex;
   justify-content: flex-end;
@@ -115,6 +119,7 @@
 @media (max-width: 768px) {
   .overlay {
     top: 15vh;
+    right: 8vw;
     width: 65vw;
   }
   .overlay h1 {
@@ -138,6 +143,6 @@
   }
   .button {
     bottom: 25vh;
-    left: 26.9vw;
+    margin-left: 60px;
   }
 }

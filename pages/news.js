@@ -1,10 +1,19 @@
 import { CircularProgress } from "@mui/material";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/Article.module.css";
 import client from "../utils/client";
 import { urlFor } from "../utils/image";
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+    },
+  };
+}
 
 function News(props) {
   const router = useRouter();

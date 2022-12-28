@@ -8,7 +8,6 @@ import styles from "../styles/Portfolio.module.css";
 import client from "../utils/client";
 import { urlFor } from "../utils/image";
 import CloseIcon from "@mui/icons-material/Close";
-import { color } from "@mui/system";
 
 export async function getStaticProps({ locale }) {
   return {

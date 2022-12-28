@@ -22,6 +22,9 @@ export default function Footer() {
           <NextLink href={`/portfolio?service=cm`}>
             <p>{t("community_management")}</p>
           </NextLink>
+          <NextLink href={`/privacy-policy`}>
+            <p>{t("privacy_policy")}</p>
+          </NextLink>
         </div>
         <div className={styles.col30}>
           <h1>{t("our_contacts")}</h1>

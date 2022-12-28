@@ -48,9 +48,10 @@
   width: calc(100% / 3);
   display: inline-flex;
   padding: 20px;
+  text-align: center;
 }
 .article img {
-  width: 100%;
+  width: 60%;
   cursor: pointer;
 }
 .body {

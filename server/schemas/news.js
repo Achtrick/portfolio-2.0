@@ -11,7 +11,12 @@ export default {
     {
       name: "description",
       title: "Description",
-      type: "string",
+      type: "text",
+    },
+    {
+      name: "body",
+      title: "Body",
+      type: "text",
     },
     {
       name: "link",

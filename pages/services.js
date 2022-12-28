@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/Services.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {
-  Navigation,
-  Pagination,
-  Autoplay,
-  Scrollbar,
-  A11y,
-} from "swiper";
+import { Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";

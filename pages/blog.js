@@ -20,6 +20,7 @@ export default function Portfolio(props) {
   const { t } = useTranslation("common");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { locale } = useRouter();
 
   const fetchData = async () => {
     try {
@@ -186,11 +187,7 @@ export default function Portfolio(props) {
                     return (
                       <div key={article._id} className={styles.article}>
                         <div className={styles.body}>
-                          <a
-                            target="_blank"
-                            rel="noreferrer"
-                            href={article.link}
-                          >
+                          <a href={`/${locale}/news?id=${article._id}`}>
                             <img
                               alt={article.title}
                               src={urlFor(article.image.asset._ref)}
@@ -208,7 +205,10 @@ export default function Portfolio(props) {
                               ? article.description.slice(0, 100) + "..."
                               : article.description}
                           </p>
-                          <a className={styles.button} href={article.link}>
+                          <a
+                            className={styles.button}
+                            href={`/${locale}/news?id=${article._id}`}
+                          >
                             {t("visit")}
                           </a>
                         </div>

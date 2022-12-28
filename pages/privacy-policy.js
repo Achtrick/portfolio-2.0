@@ -1,22 +1,7 @@
 import Layout from "../components/Layout";
-import styles from "../styles/Home.module.css";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common"])),
-    },
-  };
-}
-
 export default function Privacy(props) {
-  const { locale } = useRouter();
-  const { t } = useTranslation("common");
-
   return (
     <Layout
       title={"About"}
@@ -153,7 +138,7 @@ export default function Privacy(props) {
         "website application development company",
       ]}
     >
-      <div>
+      <div style={{ padding: "150px", textAlign: "justify" }}>
         <h1>Privacy Policy</h1>
         <p>Last updated: November 07, 2022</p>
         <p>

@@ -63,10 +63,10 @@
   justify-content: flex-start;
 }
 .title h1 {
-  font-family: "Outfit";
+  font-family: "Outfit" sans;
   font-style: normal;
   font-weight: 700;
-  font-size: 35px;
+  font-size: 38px;
   line-height: 109.72%;
   letter-spacing: 0.085em;
   text-transform: uppercase;
@@ -98,6 +98,9 @@
   }
 }
 @media (max-width: 768px) {
+  .container {
+    overflow: hidden;
+  }
   .container img {
     height: 100%;
     width: auto;

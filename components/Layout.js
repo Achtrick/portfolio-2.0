@@ -63,7 +63,7 @@ export default function Layout({ title, tags, description, children }) {
   return (
     <>
       <Head>
-        <title>{title ? `${title} - Creo` : "Creo"}</title>
+        <title>{title ? `Creo - ${title}` : "Creo"}</title>
         {description && <meta name="description" content={description}></meta>}
         {tags && <meta name="keywords" content={tags.join(", ")}></meta>}
         <link defer rel="preconnect" href="https://fonts.googleapis.com" />

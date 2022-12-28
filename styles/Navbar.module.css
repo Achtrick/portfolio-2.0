@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: space-between;
   position: fixed;
+  top: 0px;
+  left: 0px;
   z-index: 1000;
   color: white;
   font-family: "Outfit";

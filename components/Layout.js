@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { Store } from "../utils/store";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
+import CookieConsent, { Cookies } from "react-cookie-consent";
 
 export default function Layout({ title, tags, description, children }) {
   const { state, dispatch } = useContext(Store);
@@ -111,6 +112,18 @@ export default function Layout({ title, tags, description, children }) {
         <main>{children}</main>
         {router.pathname === "/" ? null : <Footer />}
       </ThemeProvider>
+      <CookieConsent
+        location="bottom"
+        buttonText={router.locale === "en" ? "I understand" : "Je Comprend"}
+        cookieName="creo-cookies-consent"
+        style={{ background: "#000", borderTop: "1px solid #ccc" }}
+        buttonStyle={{ backgroundColor: "#fff", fontSize: "15px" }}
+        expires={150}
+      >
+        {router.locale === "en"
+          ? "This website uses cookies to enhance the user experience."
+          : "Ce site utilise des cookies pour améliorer l'expérience utilisateur."}
+      </CookieConsent>
     </>
   );
 }

@@ -201,6 +201,7 @@ export default function Portfolio(props) {
             {project.gallery?.map((img) => {
               return (
                 <img
+                  key={img._key}
                   alt={`creo - ${project.title}`}
                   src={urlFor(img.asset._ref)}
                 />

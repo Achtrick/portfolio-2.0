@@ -199,12 +199,16 @@ export default function About(props) {
       <section className={styles.container}>
         <div className={styles.overlay}>
           <div className={styles.header}>
-            <h1>{t("leave_us_a_message")}</h1>
+            <h1 data-aos="fade-up">{t("leave_us_a_message")}</h1>
           </div>
           <div className="form_container">
             <form onSubmit={(e) => sendEmail(e)}>
               <div className="form_row">
-                <div className="form_col">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="form_col"
+                >
                   <label>{t("contact_name")}</label>
                   <input
                     value={formData.name}
@@ -216,7 +220,11 @@ export default function About(props) {
                     }
                   />
                 </div>
-                <div className="form_col">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  className="form_col"
+                >
                   <label>{t("contact_email")}</label>
                   <input
                     value={formData.email}
@@ -228,7 +236,11 @@ export default function About(props) {
                     }
                   />
                 </div>
-                <div className="form_col">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                  className="form_col"
+                >
                   <label>{t("contact_phone")}</label>
                   <input
                     value={formData.phone}
@@ -242,7 +254,11 @@ export default function About(props) {
                 </div>
               </div>
               <div className="form_row">
-                <div className="form_col">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                  className="form_col"
+                >
                   <label>{t("contact_subject")}</label>
                   <input
                     value={formData.subject}
@@ -254,7 +270,11 @@ export default function About(props) {
                     }
                   />
                 </div>
-                <div className="form_colx2">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="500"
+                  className="form_colx2"
+                >
                   <label>{t("contact_message")}</label>
                   <textarea
                     value={formData.message}
@@ -267,7 +287,7 @@ export default function About(props) {
                   />
                 </div>
               </div>
-              <div className="form_row">
+              <div data-aos="fade-up" data-aos-delay="600" className="form_row">
                 <div className="form_col">
                   <input
                     id="file"
@@ -307,7 +327,7 @@ export default function About(props) {
               </div>
             </form>
           </div>
-          <div className={styles.maps}>
+          <div data-aos="fade-up" className={styles.maps}>
             <iframe
               width="100%"
               height="300"

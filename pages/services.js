@@ -228,7 +228,7 @@ function Services(props) {
       <div className={styles.container}>
         <img alt="creo-services" src={"/" + "./images/services.webp"} />
         <div className={styles.overlay}>
-          <div className={styles.row}>
+          <div data-aos="fade-down" className={styles.row}>
             <div className={styles.col}>
               <div className={styles.title}>
                 <h1>01</h1>
@@ -248,7 +248,7 @@ function Services(props) {
               </div>
             </div>
           </div>
-          <div className={styles.row}>
+          <div data-aos="fade-down" className={styles.row}>
             <div className={styles.col}>
               <div className={styles.title}>
                 <h1>02</h1>
@@ -265,7 +265,7 @@ function Services(props) {
               </div>
             </div>
           </div>
-          <div className={styles.row}>
+          <div data-aos="fade-down" className={styles.row}>
             <div className={styles.col}>
               <div className={styles.title}>
                 <h1>03</h1>
@@ -297,11 +297,14 @@ function Services(props) {
           loop
           pagination={{ clickable: true }}
         >
-          {partners.map((partner) => {
+          {partners.map((partner, index) => {
+            console.log(index);
             return (
               <SwiperSlide key={partner._id}>
                 <div className={styles.partner}>
                   <img
+                    data-aos="fade-up"
+                    data-aos-delay={300 * index}
                     alt={partner.name}
                     src={urlFor(partner.image.asset._ref)}
                   />

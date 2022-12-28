@@ -61,7 +61,7 @@
 }
 .button {
   position: absolute;
-  bottom: 20vh;
+  bottom: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,7 +142,7 @@
     font-size: 35px;
   }
   .button {
-    bottom: 25vh;
+    bottom: 13vh;
     margin-left: 60px;
   }
 }

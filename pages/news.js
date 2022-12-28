@@ -51,7 +51,7 @@ function News(props) {
             </div>
           ) : (
             <div className={styles.article}>
-              <div className={styles.header}>
+              <div data-aos="fade-in" className={styles.header}>
                 <img
                   alt={article.title}
                   src={urlFor(article.image.asset._ref)}
@@ -60,8 +60,10 @@ function News(props) {
                   <h1>{article.title}</h1>
                 </div>
               </div>
-              <p>{article.description}</p>
-              <h2>{article.body}</h2>
+              <p data-aos="fade-in" data-aos-delay="400">
+                {article.description}
+              </p>
+              <h2 data-aos="fade-in">{article.body}</h2>
             </div>
           )}
         </div>

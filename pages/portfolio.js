@@ -262,9 +262,14 @@ export default function Portfolio(props) {
                 </div>
               ) : (
                 <>
-                  {projects.map((project) => {
+                  {projects.map((project, index) => {
                     return (
-                      <div key={project._id} className={styles.project}>
+                      <div
+                        data-aos="zoom-in"
+                        data-aos-delay={250 * index}
+                        key={project._id}
+                        className={styles.project}
+                      >
                         <div className={styles.body}>
                           <img
                             style={{ cursor: "pointer" }}

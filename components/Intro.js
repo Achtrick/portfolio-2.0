@@ -9,7 +9,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-flip";
-import { useRouter } from "next/router";
 import { useMediaQuery } from "@mui/material";
 
 export default function Intro(props) {
@@ -64,7 +63,7 @@ export default function Intro(props) {
         </SwiperSlide>
       </Swiper>
 
-      <div className={styles.links}>
+      <div data-aos="fade-right" className={styles.links}>
         <p>{t("follow_us")}</p>
         <a
           target="_blank"
@@ -102,17 +101,19 @@ export default function Intro(props) {
           <img alt="creo-youtube" src={"/" + "./images/youtube.webp"} />
         </a>
       </div>
-      <div className={styles.overlay}>
+      <div data-aos="fade-down" className={styles.overlay}>
         <h1>knowledge and</h1>
         <h1>innovation</h1>
-        <p>{t("portfolio_intro_description")}</p>
+        <p>{t("home_quote")}</p>
       </div>
-      <div className={styles.button}>
+      <div data-aos="fade-up" className={styles.button}>
         <Link href="services">
           <button>{t("discover")}</button>
         </Link>
       </div>
-      <div className={styles.pagination}>____0{activeIndex}</div>
+      <div data-aos="fade-left" className={styles.pagination}>
+        ____0{activeIndex}
+      </div>
     </section>
   );
 }

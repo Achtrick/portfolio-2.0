@@ -175,7 +175,7 @@ export default function Portfolio(props) {
       <section className={styles.container}>
         <div className={styles.overlay}>
           <div className={styles.header}>
-            <h1>{t("news")}</h1>
+            <h1 data-aos="fade-down">{t("news")}</h1>
             <div className={styles.articles}>
               {loading ? (
                 <div className="spinner">
@@ -183,9 +183,14 @@ export default function Portfolio(props) {
                 </div>
               ) : (
                 <>
-                  {articles.map((article) => {
+                  {articles.map((article, index) => {
                     return (
-                      <div key={article._id} className={styles.article}>
+                      <div
+                        data-aos="zoom-out"
+                        data-aos-delay={250 * index}
+                        key={article._id}
+                        className={styles.article}
+                      >
                         <div className={styles.body}>
                           <a href={`/${locale}/news?id=${article._id}`}>
                             <img

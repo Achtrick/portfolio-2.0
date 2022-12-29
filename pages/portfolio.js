@@ -275,7 +275,8 @@ export default function Portfolio(props) {
                             style={{ cursor: "pointer" }}
                             onClick={() => {
                               setProject(project);
-                              setOpenProject(true);
+                              if (project.gallery?.length > 0)
+                                setOpenProject(true);
                             }}
                             alt={project.name}
                             src={urlFor(project.image.asset._ref)}

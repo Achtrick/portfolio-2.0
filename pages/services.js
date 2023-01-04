@@ -244,6 +244,7 @@ function Services(props) {
                 <p>{t("dev_service_3")}</p>
                 <p>{t("dev_service_4")}</p>
                 <p>{t("dev_service_5")}</p>
+                <p>{t("dev_service_6")}</p>
                 <p>-UX/UI</p>
               </div>
             </div>

@@ -210,12 +210,14 @@ export default function Header(props) {
               }
             >
               {t("contact")}
+              
             </a>
           </Link>
         </div>
         <div className={styles.lang}>
           <form onSubmit={submitHandler} style={{ display: "flex" }}>
             <input
+              style={{ width: "150px" }}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className={styles.search}

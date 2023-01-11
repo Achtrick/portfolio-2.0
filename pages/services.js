@@ -226,7 +226,6 @@ function Services(props) {
       ]}
     >
       <div className={styles.container}>
-        <img alt="creo-services" src={"/" + "./images/services.webp"} />
         <div className={styles.overlay}>
           <div data-aos="fade-down" className={styles.row}>
             <div className={styles.col}>
@@ -299,7 +298,6 @@ function Services(props) {
           pagination={{ clickable: true }}
         >
           {partners.map((partner, index) => {
-            console.log(index);
             return (
               <SwiperSlide key={partner._id}>
                 <div className={styles.partner}>

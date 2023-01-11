@@ -105,8 +105,6 @@ export default function Intro(props) {
         <h1>knowledge and</h1>
         <h1>innovation</h1>
         <p>{t("home_quote")}</p>
-      </div>
-      <div data-aos="fade-up" className={styles.button}>
         <Link href="services">
           <button>{t("discover")}</button>
         </Link>

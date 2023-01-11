@@ -40,11 +40,11 @@
   right: 150px;
   color: white;
   width: 50vw;
-  pointer-events: none;
 }
 .overlay h1 {
   font-weight: 900;
-  font-size: 50px;
+  font-size: 3vw;
+  margin-bottom: 50px;
   margin: 0px;
   letter-spacing: 0.085em;
   text-transform: uppercase;
@@ -53,22 +53,12 @@
 .overlay p {
   font-weight: 400;
   font-size: 17px;
-  line-height: 170.19%;
   text-align: justify;
   text-transform: lowercase;
   color: #ffffff;
   margin: 0px;
 }
-.button {
-  position: absolute;
-  bottom: 15vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0vw;
-  width: 100vw;
-}
-.button button {
+.overlay button {
   font-family: "Outfit";
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(2px);
@@ -86,10 +76,9 @@
   cursor: pointer;
   padding: 10px 20px;
   margin-top: 25px;
-  margin-left: -160px;
   transition: all 0.3s;
 }
-.button button:hover {
+.overlay button:hover {
   background: rgba(255, 255, 255, 0.521);
 }
 .pagination {
@@ -105,16 +94,12 @@
   display: flex;
   justify-content: flex-end;
 }
-
+/* 
 @media (min-width: 1367px) {
   .overlay h1 {
     font-size: 80px;
   }
-  .button {
-    position: absolute;
-    bottom: 30vh;
-  }
-}
+} */
 
 @media (max-width: 768px) {
   .overlay {
@@ -123,7 +108,7 @@
     width: 65vw;
   }
   .overlay h1 {
-    font-size: 30px;
+    font-size: 25px;
   }
   .links {
     top: 40.5vh;
@@ -133,6 +118,7 @@
     opacity: 1 !important;
   }
   .overlay p {
+    font-size: 15px;
     margin-top: 40px;
   }
   .container img {

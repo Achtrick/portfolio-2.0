@@ -1258,6 +1258,11 @@ select:focus {
 .form_col {
   width: 31%;
 }
+.form_col input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .form_colx2 {
   width: 65.5%;

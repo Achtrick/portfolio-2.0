@@ -16,59 +16,7 @@ export default function Header(props) {
   const isMobile = useMediaQuery("(max-width:768px)");
   const [sidbarVisible, setSidebarVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [query, setQuery] = useState("");
   const [showLangsList, setShowLangsList] = useState(false);
-  const [searching, setSearching] = useState(false);
-  const routes = [
-    {
-      title: "development",
-      keywords:
-        "web mobile dev developement application javascript responsive agile organized",
-    },
-    {
-      title: "design",
-      keywords:
-        "design graphic graphique ui ux responsive chart charte logo affiche carte visite",
-    },
-    {
-      title: "cm",
-      keywords:
-        "community ads sponsoring compagne publicité management page facebook page instagram media média ",
-    },
-  ];
-
-  const submitHandler = async (e) => {
-    try {
-      e.preventDefault();
-      setSearching(true);
-      const fetchData = async () => {
-        var max = { x: 0, title: "" };
-        routes.forEach((route) => {
-          console.log(
-            stringSimilarity.compareTwoStrings(query, route.keywords)
-          );
-          if (
-            stringSimilarity.compareTwoStrings(query, route.keywords) > max.x
-          ) {
-            max.x = stringSimilarity.compareTwoStrings(query, route.keywords);
-            max.title = route.title;
-          }
-          if (max.x !== 0) {
-            router?.push(`portfolio?service=${max.title}`);
-          } else {
-            router?.push(`portfolio`);
-          }
-        });
-      };
-      if (query) {
-        await fetchData();
-      } else {
-        setSearching(false);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
@@ -167,7 +115,7 @@ export default function Header(props) {
           <Link href="/">
             <img
               style={{ cursor: "pointer" }}
-              alt="creo"
+              alt="achref-mtir"
               src={"/" + "./images/logo-white.webp"}
             />
           </Link>
@@ -210,28 +158,10 @@ export default function Header(props) {
               }
             >
               {t("contact")}
-              
             </a>
           </Link>
         </div>
         <div className={styles.lang}>
-          <form onSubmit={submitHandler} style={{ display: "flex" }}>
-            <input
-              style={{ width: "150px" }}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className={styles.search}
-              type="text"
-              required
-            />
-            <IconButton
-              type="submit"
-              sx={{ color: "white", width: "40px", height: "40px" }}
-            >
-              <SearchIcon sx={{ color: "white !important" }} />
-            </IconButton>
-          </form>
-          &nbsp;
           <p onClick={() => setShowLangsList(!showLangsList)}>
             {locale === "fr"
               ? isMobile

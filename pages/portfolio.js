@@ -53,9 +53,9 @@ export default function Portfolio(props) {
   return (
     <Layout
       title={"Portfolio"}
-      description="Creo - Our partners and projects reflects our hard work and dedication"
+      description="achref-mtir - Our partners and projects reflects our hard work and dedication"
       tags={[
-        "creo",
+        "achref-mtir",
         "digital",
         "Knowledge",
         "Innovation",
@@ -201,7 +201,7 @@ export default function Portfolio(props) {
               return (
                 <img
                   key={img._key}
-                  alt={`creo - ${project.title}`}
+                  alt={`achref-mtir - ${project.title}`}
                   src={urlFor(img.asset._ref)}
                 />
               );

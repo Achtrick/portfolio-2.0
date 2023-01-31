@@ -1,6 +1,5 @@
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
-import { StoreProvider } from "../utils/store";
 import { SnackbarProvider } from "notistack";
 import "../styles/globals.css";
 import { appWithTranslation } from "next-i18next";
@@ -8,8 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { AppContext } from "../components/AppContext";
-import Script from 'next/script';
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 const clientSideEmotionCache = createCache({ key: "css" });
 
@@ -21,19 +19,19 @@ function MyApp({
   const router = useRouter();
 
   useEffect(() => {
-    import('react-facebook-pixel')
+    import("react-facebook-pixel")
       .then((x) => x.default)
       .then((ReactPixel) => {
-        ReactPixel.init('580663037159050') // facebookPixelId
-        ReactPixel.pageView()
-        ReactPixel.track('ViewContent');
-        ReactPixel.track('Contact');
-        router.events.on('routeChangeComplete', () => {
-          ReactPixel.pageView()
-        })
-      })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.events])
+        ReactPixel.init("580663037159050"); // facebookPixelId
+        ReactPixel.pageView();
+        ReactPixel.track("ViewContent");
+        ReactPixel.track("Contact");
+        router.events.on("routeChangeComplete", () => {
+          ReactPixel.pageView();
+        });
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.events]);
 
   useEffect(() => {
     AOS.init({
@@ -49,32 +47,17 @@ function MyApp({
   const [openItem, setOpenItem] = useState({});
 
   return (
-    <>
-      <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
-      <Script strategy="lazyOnload" id="google-analytics" >
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-              page_path: window.location.pathname,
-              });
-          `}
-      </Script>
-      <AppContext.Provider
-        value={{ openView, setOpenView, openItem, setOpenItem }}
-      >
-        <CacheProvider value={emotionCache}>
-          <SnackbarProvider
-            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-          >
-            <StoreProvider>
-              <Component {...pageProps} />
-            </StoreProvider>
-          </SnackbarProvider>
-        </CacheProvider>
-      </AppContext.Provider>
-    </>
+    <AppContext.Provider
+      value={{ openView, setOpenView, openItem, setOpenItem }}
+    >
+      <CacheProvider value={emotionCache}>
+        <SnackbarProvider
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        >
+          <Component {...pageProps} />
+        </SnackbarProvider>
+      </CacheProvider>
+    </AppContext.Provider>
   );
 }
 

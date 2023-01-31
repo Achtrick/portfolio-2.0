@@ -63,9 +63,9 @@ export default function About(props) {
   return (
     <Layout
       title={"Contact"}
-      description="Creo - Don't hesitate to contact us to ask for a quote or any question that comes to mind."
+      description="achref-mtir - Don't hesitate to contact us to ask for a quote or any question that comes to mind."
       tags={[
-        "creo",
+        "achref-mtir",
         "digital",
         "Knowledge",
         "Innovation",

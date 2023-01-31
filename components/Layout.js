@@ -2,69 +2,17 @@ import { createTheme } from "@mui/material/styles";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import Head from "next/head";
 import Header from "./Header";
-import jsCookie from "js-cookie";
-import { useContext } from "react";
-import { Store } from "../utils/store";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
-import CookieConsent, { Cookies } from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent";
 
 export default function Layout({ title, tags, description, children }) {
-  const { state, dispatch } = useContext(Store);
-  const { darkMode } = state;
   const router = useRouter();
-
-  const darkModeChangeHandler = () => {
-    dispatch({ type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON" });
-    const newDarkMode = !darkMode;
-    jsCookie.set("darkMode", newDarkMode ? "ON" : "OFF");
-  };
-
-  const theme = createTheme({
-    components: {
-      MuiLink: {
-        defaultProps: {
-          underline: "hover",
-        },
-      },
-      MuiInput: {
-        defaultProps: {
-          margin: 0,
-        },
-      },
-    },
-    typography: {
-      fontFamily: ["Helvetica", "sans-serif"].join(","),
-
-      h1: {
-        fontSize: "1.6rem",
-        fontWeight: 400,
-        margin: "1rem 0",
-      },
-      h2: {
-        fontSize: "1.4rem",
-        fontWeight: 400,
-        margin: "1rem 0",
-      },
-    },
-    palette: {
-      mode: darkMode ? "dark" : "light",
-      primary: {
-        main: "#FFF",
-      },
-      secondary: {
-        main: "#f700c4",
-      },
-      white: {
-        main: "#FFF",
-      },
-    },
-  });
 
   return (
     <>
       <Head>
-        <title>{title ? `Creo - ${title}` : "Creo"}</title>
+        <title>{title ? `achref-mtir - ${title}` : "achref-mtir"}</title>
         {description && <meta name="description" content={description}></meta>}
         {tags && <meta name="keywords" content={tags.join(", ")}></meta>}
         <link defer rel="preconnect" href="https://fonts.googleapis.com" />
@@ -98,24 +46,18 @@ export default function Layout({ title, tags, description, children }) {
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <meta name="theme-color" content="#000" />
         <meta charSet="utf-8" />
-        <link rel="canonical" href="https://creo.tn" />
+        <link rel="canonical" href="https://achref-mtir.tn" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="robots" content="index, follow" />
-        <meta
-          name="facebook-domain-verification"
-          content="dwtqsd5gc07a2gwvta6n9b3uexbo59"
-        />
       </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Header setDarkMode={darkModeChangeHandler} darkMode={darkMode} />
-        <main>{children}</main>
-        {router.pathname === "/" ? null : <Footer />}
-      </ThemeProvider>
+      <CssBaseline />
+      <Header />
+      <main>{children}</main>
+      <Footer />
       <CookieConsent
         location="bottom"
         buttonText={router.locale === "en" ? "I understand" : "Je Comprend"}
-        cookieName="creo-cookies-consent"
+        cookieName="achref-mtir-cookies-consent"
         style={{ background: "#000", borderTop: "1px solid #ccc" }}
         buttonStyle={{ backgroundColor: "#fff", fontSize: "15px" }}
         expires={150}

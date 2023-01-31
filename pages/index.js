@@ -20,9 +20,9 @@ export default function Home(props) {
   return (
     <Layout
       title={null}
-      description="Creo - Knowledge & Innovation"
+      description="achref-mtir - Knowledge & Innovation"
       tags={[
-        "creo",
+        "achref-mtir",
         "digital",
         "Knowledge",
         "Innovation",

@@ -33,7 +33,7 @@ export default function Intro(props) {
       >
         <SwiperSlide>
           <img
-            alt="creo"
+            alt="achref-mtir"
             src={
               isMobile
                 ? "/" + "./images/home1mobile.webp"
@@ -43,7 +43,7 @@ export default function Intro(props) {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            alt="creo"
+            alt="achref-mtir"
             src={
               isMobile
                 ? "/" + "./images/home2mobile.webp"
@@ -53,7 +53,7 @@ export default function Intro(props) {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            alt="creo"
+            alt="achref-mtir"
             src={
               isMobile
                 ? "/" + "./images/home3mobile.webp"
@@ -68,37 +68,46 @@ export default function Intro(props) {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.facebook.com/CreoSousse"
+          href="https://www.facebook.com/achref-mtirSousse"
         >
-          <img alt="creo-facebook" src={"/" + "./images/facebook.webp"} />
+          <img
+            alt="achref-mtir-facebook"
+            src={"/" + "./images/facebook.webp"}
+          />
         </a>
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.instagram.com/creo_consulting/"
+          href="https://www.instagram.com/achref-mtir_consulting/"
         >
-          <img alt="creo-instagram" src={"/" + "./images/instagram.webp"} />
+          <img
+            alt="achref-mtir-instagram"
+            src={"/" + "./images/instagram.webp"}
+          />
         </a>
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.twitter.com/CreoSousse"
+          href="https://www.twitter.com/achref-mtirSousse"
         >
-          <img alt="creo-twitter" src={"/" + "./images/twitter.webp"} />
+          <img alt="achref-mtir-twitter" src={"/" + "./images/twitter.webp"} />
         </a>
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.linkedin.com/company/creo-tn/mycompany/"
+          href="https://www.linkedin.com/company/achref-mtir-tn/mycompany/"
         >
-          <img alt="creo-linkedin" src={"/" + "./images/linkedin.webp"} />
+          <img
+            alt="achref-mtir-linkedin"
+            src={"/" + "./images/linkedin.webp"}
+          />
         </a>
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://www.youtube.com/channel/CreoSousse"
+          href="https://www.youtube.com/channel/achref-mtirSousse"
         >
-          <img alt="creo-youtube" src={"/" + "./images/youtube.webp"} />
+          <img alt="achref-mtir-youtube" src={"/" + "./images/youtube.webp"} />
         </a>
       </div>
       <div data-aos="fade-down" className={styles.overlay}>

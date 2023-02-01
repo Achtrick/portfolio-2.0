@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Intro.module.css";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFlip, Autoplay, Mousewheel, Pagination } from "swiper";
@@ -18,108 +18,22 @@ export default function Intro(props) {
 
   return (
     <section className={styles.container}>
-      <Swiper
-        style={{ zIndex: "0" }}
-        modules={[EffectFlip, Mousewheel, Pagination, Autoplay]}
-        mousewheel={true}
-        autoplay
-        onSlideChange={(e) => setactiveIndex(e.activeIndex + 1)}
-        effect={"flip"}
-        pagination={{
-          clickable: true,
-        }}
-        spaceBetween={0}
-        slidesPerView={1}
-      >
-        <SwiperSlide>
-          <img
-            alt="achref-mtir"
-            src={
-              isMobile
-                ? "/" + "./images/home1mobile.webp"
-                : "/" + "./images/home.webp"
-            }
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            alt="achref-mtir"
-            src={
-              isMobile
-                ? "/" + "./images/home2mobile.webp"
-                : "/" + "./images/home2.webp"
-            }
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            alt="achref-mtir"
-            src={
-              isMobile
-                ? "/" + "./images/home3mobile.webp"
-                : "/" + "./images/home3.webp"
-            }
-          />
-        </SwiperSlide>
-      </Swiper>
-
-      <div data-aos="fade-right" className={styles.links}>
-        <p>{t("follow_us")}</p>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.facebook.com/achref-mtirSousse"
-        >
-          <img
-            alt="achref-mtir-facebook"
-            src={"/" + "./images/facebook.webp"}
-          />
-        </a>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.instagram.com/achref-mtir_consulting/"
-        >
-          <img
-            alt="achref-mtir-instagram"
-            src={"/" + "./images/instagram.webp"}
-          />
-        </a>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.twitter.com/achref-mtirSousse"
-        >
-          <img alt="achref-mtir-twitter" src={"/" + "./images/twitter.webp"} />
-        </a>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.linkedin.com/company/achref-mtir-tn/mycompany/"
-        >
-          <img
-            alt="achref-mtir-linkedin"
-            src={"/" + "./images/linkedin.webp"}
-          />
-        </a>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.youtube.com/channel/achref-mtirSousse"
-        >
-          <img alt="achref-mtir-youtube" src={"/" + "./images/youtube.webp"} />
-        </a>
-      </div>
-      <div data-aos="fade-down" className={styles.overlay}>
-        <h1>knowledge and</h1>
-        <h1>innovation</h1>
-        <p>{t("home_quote")}</p>
-        <Link href="services">
-          <button>{t("discover")}</button>
-        </Link>
-      </div>
-      <div data-aos="fade-left" className={styles.pagination}>
-        ____0{activeIndex}
+      <img alt="intro" src={"/images/intro.webp"} />
+      <div className={styles.overlay}>
+        <div className={styles.col60}>
+          <h1>{t("hi_iam")}</h1>
+          <h2>achref mtir</h2>
+          <h3>{t("fullstack_developer")}</h3>
+          <p>{t("intro")}</p>
+          <div className={styles.row}>
+            <img alt="achref-github" src="/icons/github.webp" />
+            <img alt="achref-linkedin" src="/icons/linkedin.webp" />
+            <img alt="achref-instagram" src="/icons/instagram.webp" />
+          </div>
+        </div>
+        <div className={styles.col40}>
+          <img alt="achref-mtir" src="/images/achref.webp" />
+        </div>
       </div>
     </section>
   );

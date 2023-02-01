@@ -5,9 +5,11 @@ import { IconButton, Modal, useMediaQuery } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "../styles/Navbar.module.css";
-var stringSimilarity = require("string-similarity");
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import { AppContext } from "./AppContext";
 
 export default function Header(props) {
   const router = useRouter();
@@ -16,7 +18,7 @@ export default function Header(props) {
   const isMobile = useMediaQuery("(max-width:768px)");
   const [sidbarVisible, setSidebarVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showLangsList, setShowLangsList] = useState(false);
+  const { showLangsList, setShowLangsList } = useContext(AppContext);
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
@@ -48,16 +50,6 @@ export default function Header(props) {
                 {t("home")}
               </a>
             </Link>
-            <Link href="/services">
-              <a
-                onClick={() => setSidebarVisible(!sidbarVisible)}
-                className={
-                  router.pathname === "/services" ? styles.activeLink : null
-                }
-              >
-                {t("services")}
-              </a>
-            </Link>
             <Link href="/portfolio">
               <a
                 onClick={() => setSidebarVisible(!sidbarVisible)}
@@ -66,16 +58,6 @@ export default function Header(props) {
                 }
               >
                 {t("portfolio")}
-              </a>
-            </Link>
-            <Link href="/blog">
-              <a
-                onClick={() => setSidebarVisible(!sidbarVisible)}
-                className={
-                  router.pathname === "/blog" ? styles.activeLink : null
-                }
-              >
-                {t("blog")}
               </a>
             </Link>
             <Link href="/contact">
@@ -92,13 +74,9 @@ export default function Header(props) {
         </div>
       </Modal>
       <div
+        onClick={() => setShowLangsList(false)}
         style={{
-          backgroundColor:
-            router.pathname !== "/" && router.pathname !== "/services"
-              ? "#000"
-              : scrolled
-              ? "#000"
-              : null,
+          backgroundColor: scrolled ? "#1E1E1E" : null,
           transition: "all 0.3s",
         }}
         className={styles.navbar}
@@ -111,28 +89,10 @@ export default function Header(props) {
             <MenuIcon />
           </IconButton>
         </div>
-        <div className={styles.logo}>
-          <Link href="/">
-            <img
-              style={{ cursor: "pointer" }}
-              alt="achref-mtir"
-              src={"/" + "./images/logo-white.webp"}
-            />
-          </Link>
-        </div>
         <div className={styles.links}>
           <Link href="/">
             <a className={router.pathname === "/" ? styles.activeLink : null}>
               {t("home")}
-            </a>
-          </Link>
-          <Link href="/services">
-            <a
-              className={
-                router.pathname === "/services" ? styles.activeLink : null
-              }
-            >
-              {t("services")}
             </a>
           </Link>
           <Link href="/portfolio">
@@ -142,13 +102,6 @@ export default function Header(props) {
               }
             >
               {t("portfolio")}
-            </a>
-          </Link>
-          <Link href="/blog">
-            <a
-              className={router.pathname === "/blog" ? styles.activeLink : null}
-            >
-              {t("blog")}
             </a>
           </Link>
           <Link href="/contact">
@@ -162,7 +115,13 @@ export default function Header(props) {
           </Link>
         </div>
         <div className={styles.lang}>
-          <p onClick={() => setShowLangsList(!showLangsList)}>
+          <p
+            className={styles.button}
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowLangsList(!showLangsList);
+            }}
+          >
             {locale === "fr"
               ? isMobile
                 ? "fr"
@@ -171,7 +130,8 @@ export default function Header(props) {
               ? isMobile
                 ? "en"
                 : "english"
-              : null}
+              : null}{" "}
+            {showLangsList ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
           </p>
           &nbsp; &nbsp;
           <div

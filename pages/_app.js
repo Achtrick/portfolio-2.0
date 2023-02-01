@@ -43,13 +43,10 @@ function MyApp({
     });
   }, []);
 
-  const [openView, setOpenView] = useState(false);
-  const [openItem, setOpenItem] = useState({});
+  const [showLangsList, setShowLangsList] = useState(false);
 
   return (
-    <AppContext.Provider
-      value={{ openView, setOpenView, openItem, setOpenItem }}
-    >
+    <AppContext.Provider value={{ showLangsList, setShowLangsList }}>
       <CacheProvider value={emotionCache}>
         <SnackbarProvider
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}

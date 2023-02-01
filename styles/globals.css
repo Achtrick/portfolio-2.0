@@ -13,14 +13,15 @@
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;  
+
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Outfit';
+  font-family: 'Outfit';  
 }
 
 a {

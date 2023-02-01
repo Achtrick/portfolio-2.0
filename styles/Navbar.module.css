@@ -4,7 +4,7 @@
   background: transparent;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -12,21 +12,15 @@
   color: white;
   font-family: "Outfit";
 }
-.logo {
-  width: 10%;
-}
-.logo img {
-  width: 100px;
-}
 .links {
-  width: 100%;
+  width: 70%;
   display: flex;
-  justify-content: flex-end;
   padding: 0px 50px 0px 0px;
+  margin-left: 10%;
+  justify-content: center;
 }
 .links a {
   margin: 0px 10px;
-
   text-decoration: none;
   transition: all 0.3s;
   font-weight: 600;
@@ -34,22 +28,26 @@
   text-transform: uppercase;
 }
 .links a:hover {
-  color: #d9027e;
+  color: #d2650f;
 }
 .activeLink {
-  color: #d9027e;
+  color: #d2650f;
 }
 .lang {
+  position: relative;
   display: flex;
   justify-content: flex-start;
-  position: relative;
+  align-items: center;
 }
 .lang p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   cursor: pointer;
   transition: all 0.3s;
 }
 .lang p:hover {
-  color: #d9027e;
+  color: #d2650f;
 }
 .navbar p {
   font-weight: 500;
@@ -73,12 +71,13 @@
   top: -200px;
   opacity: 0;
   height: 20px;
-  right: 0px;
+  left: 0px;
   transition: all 0.3s;
 }
 .open {
   opacity: 1;
-  top: 25px;
+  top: 50px;
+  padding: 0px 10px;
   transition: all 0.3s;
 }
 .openDrawer {
@@ -109,7 +108,11 @@
   font-size: 20px;
   text-transform: uppercase;
 }
-
+.button {
+  border: 1px solid #5a5958;
+  padding: 10px;
+  border-radius: 20px;
+}
 @media (max-width: 950px) {
   .links {
     display: none;
@@ -119,6 +122,7 @@
   }
   .navbar {
     padding: 10px;
+    justify-content: space-between;
   }
   .logo {
     display: flex;

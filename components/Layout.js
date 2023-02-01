@@ -1,13 +1,15 @@
-import { createTheme } from "@mui/material/styles";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
 import CookieConsent from "react-cookie-consent";
+import { AppContext } from "./AppContext";
+import { useContext } from "react";
 
 export default function Layout({ title, tags, description, children }) {
   const router = useRouter();
+  const { setShowLangsList } = useContext(AppContext);
 
   return (
     <>
@@ -52,7 +54,7 @@ export default function Layout({ title, tags, description, children }) {
       </Head>
       <CssBaseline />
       <Header />
-      <main>{children}</main>
+      <main onClick={() => setShowLangsList(false)}>{children}</main>
       <Footer />
       <CookieConsent
         location="bottom"

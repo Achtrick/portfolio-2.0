@@ -9,6 +9,12 @@ export default {
       type: 'string',
     },
     {
+      name: 'level',
+      title: 'Level',
+      type: 'number',
+      // Note from 1 -- 5
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',

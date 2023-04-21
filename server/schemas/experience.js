@@ -1,17 +1,17 @@
 export default {
-  name: 'degree',
-  title: 'Degree',
+  name: 'experience',
+  title: 'Experience',
   type: 'document',
   fields: [
     {
       name: 'from',
       title: 'From',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'to',
       title: 'To',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'fr_title',
@@ -24,9 +24,20 @@ export default {
       type: 'string',
     },
     {
-      name: 'institution',
-      title: 'Institution',
+      name: 'en_description',
+      title: 'En_Description',
       type: 'string',
+    },
+    {
+      name: 'fr_description',
+      title: 'Fr_Description',
+      type: 'string',
+    },
+    {
+      name: 'skills',
+      title: 'Skills',
+      type: 'array',
+      of: [{type: 'string'}],
     },
   ],
 }

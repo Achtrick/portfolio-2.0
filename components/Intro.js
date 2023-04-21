@@ -1,15 +1,12 @@
-import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
+import React, { useState } from "react";
 import styles from "../styles/Intro.module.css";
-import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFlip, Autoplay, Mousewheel, Pagination } from "swiper";
 // Import Swiper styles
+import { useMediaQuery } from "@mui/material";
 import "swiper/css";
+import "swiper/css/effect-flip";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/effect-flip";
-import { useMediaQuery } from "@mui/material";
 
 export default function Intro(props) {
   const { t } = useTranslation("common");
@@ -26,9 +23,27 @@ export default function Intro(props) {
           <h3>{t("fullstack_developer")}</h3>
           <p>{t("intro")}</p>
           <div className={styles.row}>
-            <img alt="achref-github" src="/icons/github.webp" />
-            <img alt="achref-linkedin" src="/icons/linkedin.webp" />
-            <img alt="achref-instagram" src="/icons/instagram.webp" />
+            <a
+              href="https://github.com/Achtrick"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img alt="achref-github" src="/icons/github.webp" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ashref-mtir-192426160/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img alt="achref-linkedin" src="/icons/linkedin.webp" />
+            </a>
+            <a
+              href="https://www.instagram.com/achref_mtir/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img alt="achref-instagram" src="/icons/instagram.webp" />
+            </a>
           </div>
         </div>
         <div className={styles.col40}>

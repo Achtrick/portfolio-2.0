@@ -1,52 +1,43 @@
 export default {
-  name: "project",
-  title: "Project",
-  type: "document",
+  name: 'project',
+  title: 'Project',
+  type: 'document',
   fields: [
     {
-      name: "type",
-      title: "Type",
-      type: "string",
-      options: {
-        list: ["development", "cm", "design"],
-        layout: "select",
-      },
+      name: 'name',
+      title: 'Name',
+      type: 'string',
     },
     {
-      name: "name",
-      title: "Name",
-      type: "string",
+      name: 'description',
+      title: 'Description',
+      type: 'string',
     },
     {
-      name: "description",
-      title: "Description",
-      type: "string",
+      name: 'link',
+      title: 'Link',
+      type: 'string',
     },
     {
-      name: "link",
-      title: "Link",
-      type: "string",
-    },
-    {
-      title: "Tags",
-      name: "tags",
-      type: "array",
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
       of: [
         {
-          type: "string",
+          type: 'string',
         },
       ],
       options: {
-        layout: "tags",
+        layout: 'tags',
       },
     },
     {
-      title: "Gallery",
-      name: "gallery",
-      type: "array",
+      title: 'Gallery',
+      name: 'gallery',
+      type: 'array',
       of: [
         {
-          type: "image",
+          type: 'image',
           options: {
             hotspot: true,
           },
@@ -54,22 +45,22 @@ export default {
       ],
     },
     {
-      name: "image",
-      title: "Image",
-      type: "image",
+      name: 'image',
+      title: 'Image',
+      type: 'image',
       options: {
         hotspot: true,
       },
     },
     {
-      name: "order",
-      title: "Order",
-      type: "number",
+      name: 'order',
+      title: 'Order',
+      type: 'number',
     },
     {
-      name: "isActive",
-      title: "Is Top",
-      type: "boolean",
+      name: 'isActive',
+      title: 'Is Top',
+      type: 'boolean',
     },
   ],
-};
+}

@@ -1,10 +1,10 @@
+import emailjs from "emailjs-com";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useSnackbar } from "notistack";
+import { useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/Contact.module.css";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import emailjs from "emailjs-com";
-import axios from "axios";
-import { useState } from "react";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -16,6 +16,7 @@ export async function getStaticProps({ locale }) {
 
 export default function About(props) {
   const { t } = useTranslation("common");
+  const { enqueueSnackbar } = useSnackbar();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -27,8 +28,6 @@ export default function About(props) {
     fileName: "",
   });
 
-  const [feedback, setFeedback] = useState("");
-
   const sendEmail = (e) => {
     e.preventDefault();
     var templateParams = {
@@ -38,14 +37,12 @@ export default function About(props) {
       subject: formData.subject,
       message: formData.message,
     };
-    const serviceID = "service_dyozx05";
-    const templateID = "template_usjk0sm";
-    const userID = "user_aew1XU7c2JP3topXNbU9p";
+    const serviceID = "service_ke3jlg8";
+    const templateID = "template_7hw5efj";
+    const userID = "user_Q9HhNdBO4kBOgS9xXUEyg";
     try {
-      axios.post("/api/uploadCv", { email: formData.email, cv: formData.cv });
       emailjs.send(serviceID, templateID, templateParams, userID);
-      setFeedback("Votre email est envoyée !");
-      document.getElementById("feedback").style.color = "green";
+      enqueueSnackbar("Votre email est envoyée !", { variant: "success" });
       setFormData({
         name: "",
         email: "",
@@ -55,8 +52,7 @@ export default function About(props) {
         fileName: "",
       });
     } catch (error) {
-      setFeedback("échec ! réessayer ultérieurement");
-      document.getElementById("feedback").style.color = "#F00";
+      enqueueSnackbar("échec ! réessayer ultérieurement", { variant: "error" });
     }
   };
 
@@ -288,53 +284,15 @@ export default function About(props) {
                 </div>
               </div>
               <div data-aos="fade-up" data-aos-delay="600" className="form_row">
-                <div className="form_col">
-                  <input
-                    id="file"
-                    hidden
-                    accept="application/pdf,application/vnd.ms-excel"
-                    className="form_input"
-                    type="file"
-                    placeholder={t("contact_company")}
-                    onChange={(e) => {
-                      let reader = new FileReader();
-                      reader.readAsDataURL(e.target.files[0]);
-                      reader.onload = (evt) => {
-                        setFormData({
-                          ...formData,
-                          cv: evt.target.result,
-                          fileName: e.target.files[0].name,
-                        });
-                      };
-                    }}
-                  />
-                  <label htmlFor="file">
-                    <p>
-                      {formData.fileName != ""
-                        ? formData.fileName
-                        : t("join_file")}
-                    </p>
-                  </label>
-                </div>
                 <div className="form_colx2">
                   <p>
                     <button className="button" type="submit">
                       {t("contact_button")}
                     </button>
                   </p>
-                  <p id="feedback">{feedback}</p>
                 </div>
               </div>
             </form>
-          </div>
-          <div data-aos="fade-up" className={styles.maps}>
-            <iframe
-              width="100%"
-              height="300"
-              frameBorder="0"
-              scrolling="no"
-              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=RJPJ+7X4,%20Rue%20de%20Constantine,%20Sousse+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-            />
           </div>
         </div>
       </section>

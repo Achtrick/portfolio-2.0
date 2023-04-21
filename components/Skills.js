@@ -1,10 +1,11 @@
-import React from "react";
 import styles from "../styles/Skills.module.css";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Tooltip } from "@mui/material";
 import client from "../utils/client";
 import { useRouter } from "next/router";
+import { urlFor } from "../utils/image";
+import CircleIcon from "@mui/icons-material/Circle";
 
 function Skills(props) {
   const { t } = useTranslation("common");
@@ -23,29 +24,74 @@ function Skills(props) {
     }
   };
 
+  const renderSkillRating = (rating) => {
+    const block = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < rating) {
+        block.push(
+          <div key={i}>
+            &nbsp;
+            <CircleIcon sx={{ color: "#d2650f", fontSize: "10px" }} />
+            &nbsp;
+          </div>
+        );
+      } else {
+        block.push(
+          <div key={i}>
+            &nbsp;
+            <CircleIcon sx={{ color: "#F0F0F0", fontSize: "10px" }} />
+            &nbsp;
+          </div>
+        );
+      }
+    }
+    return block;
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
   return (
     <div className={styles.container}>
-      <p>{t("education")}</p>
+      <p data-aos="fade-in">{t("skills")}</p>
       {loading ? (
         <div className="spinner">
           <CircularProgress sx={{ color: "#fff" }} />
         </div>
       ) : (
-        <>
-          {skills.map((skill) => {
-            return (
-              <div key={study._id} className={styles.row}>
-                <div className={styles.year}>{study.from + "-" + study.to}</div>
-                <div className={styles.desc}>
-                  <p>{locale === "en" ? study.en_title : study.fr_title}</p>
+        <div className={styles.grid}>
+          {skills
+            .sort((a, b) => {
+              if (a.order < b.order) {
+                return -1;
+              }
+              if (a.order > b.order) {
+                return 1;
+              }
+              return 0;
+            })
+            .map((skill, index) => {
+              return (
+                <div
+                  key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={(index + 1) * 200}
+                  className={styles.imgHolder}
+                >
+                  <Tooltip title={skill.name}>
+                    <img alt={skill.name} src={urlFor(skill.image)} />
+                  </Tooltip>
+                  <div
+                    data-aos="fade-up"
+                    data-aos-delay={(index + 3) * 200}
+                    className={styles.rating}
+                  >
+                    {renderSkillRating(skill.level)}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </>
+              );
+            })}
+        </div>
       )}
     </div>
   );

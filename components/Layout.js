@@ -25,7 +25,7 @@ export default function Layout({ title, tags, description, children }) {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@100;300;400;700;900&display=swap"
           rel="stylesheet"
         />
         <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.webp" />

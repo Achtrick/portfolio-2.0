@@ -1,0 +1,80 @@
+import React, { useEffect, useState } from "react";
+import styles from "../styles/Experience.module.css";
+import { useTranslation } from "next-i18next";
+import { CircularProgress } from "@mui/material";
+import client from "../utils/client";
+import { useRouter } from "next/router";
+
+function Experience(props) {
+  const { t } = useTranslation("common");
+  const { locale } = useRouter();
+
+  const [experiences, setExperiences] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async () => {
+    try {
+      const experiences = await client.fetch(`*[_type == "experience"]`);
+      setExperiences(experiences);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      <p data-aos="fade-in">{t("experience")}</p>
+      {loading ? (
+        <div className="spinner">
+          <CircularProgress sx={{ color: "#fff" }} />
+        </div>
+      ) : (
+        <>
+          {experiences
+            .sort((a, b) => {
+              if (a.to < b.to || a.to === "Present") {
+                return -1;
+              }
+              if (a.to > b.to) {
+                return 1;
+              }
+              return 0;
+            })
+            .map((experience, index) => {
+              return (
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay={(index + 1) * 200}
+                  key={experience._id}
+                  className={styles.row}
+                >
+                  <div className={styles.year}>
+                    {experience.from + " / " + experience.to}
+                  </div>
+                  <div className={styles.desc}>
+                    <p>
+                      {locale === "en"
+                        ? experience.en_title
+                        : experience.fr_title}
+                    </p>
+                    <p>
+                      {locale === "en"
+                        ? experience.en_description
+                        : experience.fr_description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+        </>
+      )}
+    </div>
+  );
+}
+
+export default Experience;

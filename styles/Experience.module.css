@@ -15,7 +15,7 @@
   justify-content: flex-start;
 }
 .year {
-  width: 120px !important;
+  width: 200px;
   height: 50px;
   display: flex;
   align-items: center;
@@ -27,17 +27,22 @@
   border-radius: 35px;
   padding: 10px;
   font-weight: 700;
-  font-size: clamp(12px, 1.2vw, 16px);
+  font-size: clamp(13px, 1.2vw, 16px);
   color: #d2650f;
+  text-transform: uppercase;
 }
 .desc {
   padding: 0px 20px;
-  width: calc(100% - 120px);
+  width: calc(100% - 200px);
 }
 .desc p {
   font-weight: 100;
-  font-size: clamp(14px, 1.8vw, 30px);
+  font-size: clamp(15px, 1.8vw, 30px);
   color: #ffffff;
+}
+.desc p:nth-of-type(2) {
+  font-size: clamp(14px, 0.8vw, 24px);
+  color: #cecece;
 }
 
 @media (max-width: 900px) {
@@ -45,9 +50,13 @@
     padding: 50px 20px;
   }
   .year {
-    width: 95px !important;
+    width: 60px;
+    height: 260px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    letter-spacing: -2px;
   }
   .desc {
-    width: calc(100% - 95px);
+    width: calc(100% - 60px);
   }
 }

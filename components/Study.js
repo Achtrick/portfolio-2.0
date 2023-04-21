@@ -28,17 +28,24 @@ function Study(props) {
 
   return (
     <div className={styles.container}>
-      <p>{t("education")}</p>
+      <p data-aos="fade-in">{t("education")}</p>
       {loading ? (
         <div className="spinner">
           <CircularProgress sx={{ color: "#fff" }} />
         </div>
       ) : (
         <>
-          {studies.map((study) => {
+          {studies.reverse().map((study, index) => {
             return (
-              <div key={study._id} className={styles.row}>
-                <div className={styles.year}>{study.from + "-" + study.to}</div>
+              <div
+                data-aos="fade-up"
+                data-aos-delay={(index + 1) * 200}
+                key={study._id}
+                className={styles.row}
+              >
+                <div className={styles.year}>
+                  {study.from + " - " + study.to}
+                </div>
                 <div className={styles.desc}>
                   <p>{locale === "en" ? study.en_title : study.fr_title}</p>
                 </div>

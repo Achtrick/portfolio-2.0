@@ -73,6 +73,19 @@ function Experience(props) {
             })}
         </>
       )}
+      <br />
+      <hr data-aos="fade-up" data-aos-delay="800" />
+      <div data-aos="fade-up" data-aos-delay="1000" className="cv">
+        {locale === "en" ? (
+          <a className={styles.cv} href={"./cv-en.pdf"} download="Ashref-Cv">
+            DOWNLOAD CV
+          </a>
+        ) : (
+          <a className={styles.cv} href={"./cv-fr.pdf"} download="Ashref-Cv">
+            TÉLÉCHARGER CV
+          </a>
+        )}
+      </div>
     </div>
   );
 }

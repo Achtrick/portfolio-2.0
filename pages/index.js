@@ -21,8 +21,7 @@ export default function Home(props) {
 
   return (
     <Layout
-      title={"Achref Mtir"}
-      description="Achref-Mtir - Fullstack web developer / MERN Stack expert."
+      description="Fullstack web developer / MERN Stack expert."
       tags={[
         "achref-mtir",
         "digital",

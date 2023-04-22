@@ -1,83 +1,55 @@
 .container {
-  width: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(213, 213, 213, 1) 0%,
-    rgba(212, 212, 212, 1) 100%
-  );
-  min-height: 120vh;
-}
-.overlay {
+  background-color: #1e1e1e;
   width: 100%;
   height: 100%;
   background-size: contain;
-  min-height: 120vh;
+  min-height: 100vh;
   background-repeat: no-repeat;
-  padding: 18vh 0px;
+  padding: 18vh 8vw;
+  overflow: hidden;
 }
 .header {
   width: 100%;
+  height: 80vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.header h1 {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 800;
-  font-size: 26px;
-  line-height: 109.72%;
-  letter-spacing: 0.085em;
-  text-transform: uppercase;
-  color: #000000;
-  margin-bottom: 20px;
-}
-.menu {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 200px;
-}
-.button {
-  font-family: "Outfit";
+.col60 {
+  width: 60%;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 124.22%;
+  text-transform: uppercase;
+  font-size: clamp(30px, 4vw, 90px);
+  background: linear-gradient(179.36deg, #5a5958 -34.99%, #202020 99.08%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.col40 {
+  width: 40%;
   display: flex;
   align-items: center;
-  text-align: center;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #000;
-  padding: 5px 10px;
-  background: transparent;
-  backdrop-filter: blur(2px);
-  border-radius: 266px;
-  border: 1px solid #000000;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin: 10px;
+  justify-content: flex-end;
 }
-.button:hover {
-  background-color: #000;
-  color: #fff;
-}
-.active {
-  background-color: #000;
-  color: #fff;
+.col40 img {
+  width: 100%;
+  opacity: 0.9;
+  mix-blend-mode: screen;
 }
 .projects {
-  padding: 50px 200px;
+  padding: 50px 0px;
+  overflow: hidden;
 }
 .project {
   width: calc(100% / 3);
   display: inline-flex;
   padding: 20px;
+  margin-bottom: 30px;
 }
 .project img {
   width: 100%;
+  object-fit: fill;
 }
 .body {
   width: 100%;
@@ -87,24 +59,17 @@
   justify-content: center;
 }
 .body h1 {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 109.72%;
-  letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #000000;
+  font-weight: 600;
+  font-size: clamp(15px, 1.8vw, 30px);
+  color: #ffffff;
+  margin: 5px 0px;
 }
 .body p {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 400;
-  margin-top: 2px;
-  font-size: 15px;
-  line-height: 178.19%;
-  text-transform: lowercase;
-  color: #000000;
+  font-weight: 100;
+  font-size: clamp(14px, 0.8vw, 24px);
+  color: #cecece;
+  margin: 0px;
 }
 .gallery {
   width: 100%;
@@ -143,21 +108,55 @@
   background-color: #fff;
   border-radius: 50%;
 }
+.tags {
+  width: 100%;
+  margin-top: 10px;
+}
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #b4b4b4;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 5px 5px 5px 0px;
+  border-radius: 10px;
+}
 
 @media (max-width: 768px) {
-  .container h1 {
-    font-size: 1.4rem;
-  }
   .button {
     font-size: 0.8em;
   }
   .projects {
-    padding: 20px;
+    padding: 0px;
   }
   .project {
     width: 100%;
+    padding: 0px;
   }
   .project h1 {
     font-size: 1em;
+  }
+  .gallery .images {
+    padding: 20px;
+  }
+  .header {
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+  .col40 {
+    width: 100%;
+  }
+  .col40 img {
+    height: 100%;
+  }
+  .col60 {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .container {
+    padding: 8vh 8vw;
   }
 }

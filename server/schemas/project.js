@@ -9,8 +9,13 @@ export default {
       type: 'string',
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: 'fr_description',
+      title: 'Fr_Description',
+      type: 'string',
+    },
+    {
+      name: 'en_description',
+      title: 'En_Description',
       type: 'string',
     },
     {
@@ -58,8 +63,8 @@ export default {
       type: 'number',
     },
     {
-      name: 'isActive',
-      title: 'Is Top',
+      name: 'isLive',
+      title: 'Is Live',
       type: 'boolean',
     },
   ],

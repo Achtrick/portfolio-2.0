@@ -59,7 +59,7 @@ export default function About(props) {
   return (
     <Layout
       title={"Contact"}
-      description="achref-mtir - Don't hesitate to contact us to ask for a quote or any question that comes to mind."
+      description="Don't hesitate to contact us to ask for a quote or any question that comes to mind."
       tags={[
         "achref-mtir",
         "digital",
@@ -197,19 +197,19 @@ export default function About(props) {
           <div className={styles.header}>
             <h1 data-aos="fade-up">{t("leave_us_a_message")}</h1>
           </div>
-          <div className="form_container">
+          <div className={styles.form_container}>
             <form onSubmit={(e) => sendEmail(e)}>
-              <div className="form_row">
+              <div className={styles.form_row}>
                 <div
                   data-aos="fade-up"
                   data-aos-delay="100"
-                  className="form_col"
+                  className={styles.form_col}
                 >
                   <label>{t("contact_name")}</label>
                   <input
                     value={formData.name}
                     required
-                    className="form_input"
+                    className={styles.form_input}
                     type="text"
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -219,13 +219,13 @@ export default function About(props) {
                 <div
                   data-aos="fade-up"
                   data-aos-delay="200"
-                  className="form_col"
+                  className={styles.form_col}
                 >
                   <label>{t("contact_email")}</label>
                   <input
                     value={formData.email}
                     required
-                    className="form_input"
+                    className={styles.form_input}
                     type="email"
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -235,13 +235,13 @@ export default function About(props) {
                 <div
                   data-aos="fade-up"
                   data-aos-delay="300"
-                  className="form_col"
+                  className={styles.form_col}
                 >
                   <label>{t("contact_phone")}</label>
                   <input
                     value={formData.phone}
                     required
-                    className="form_input"
+                    className={styles.form_input}
                     type="number"
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -249,17 +249,17 @@ export default function About(props) {
                   />
                 </div>
               </div>
-              <div className="form_row">
+              <div className={styles.form_row}>
                 <div
                   data-aos="fade-up"
                   data-aos-delay="400"
-                  className="form_col"
+                  className={styles.form_col}
                 >
                   <label>{t("contact_subject")}</label>
                   <input
                     value={formData.subject}
                     required
-                    className="form_input"
+                    className={styles.form_input}
                     type="text"
                     onChange={(e) =>
                       setFormData({ ...formData, subject: e.target.value })
@@ -269,13 +269,13 @@ export default function About(props) {
                 <div
                   data-aos="fade-up"
                   data-aos-delay="500"
-                  className="form_colx2"
+                  className={styles.form_colx2}
                 >
                   <label>{t("contact_message")}</label>
                   <textarea
                     value={formData.message}
                     required
-                    className="form_input_field"
+                    className={styles.form_input_field}
                     type="text"
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
@@ -283,13 +283,19 @@ export default function About(props) {
                   />
                 </div>
               </div>
-              <div data-aos="fade-up" data-aos-delay="600" className="form_row">
-                <div className="form_colx2">
-                  <p>
-                    <button className="button" type="submit">
-                      {t("contact_button")}
-                    </button>
-                  </p>
+              <div
+                data-aos="fade-up"
+                data-aos-delay="600"
+                className={styles.form_row}
+              >
+                <div className={styles.form_colx2}>
+                  <button
+                    style={{ textTransform: "uppercase" }}
+                    className="button"
+                    type="submit"
+                  >
+                    {t("send")}
+                  </button>
                 </div>
               </div>
             </form>

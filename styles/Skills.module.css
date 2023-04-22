@@ -1,6 +1,7 @@
 .container {
   padding: 10px 8vw 150px 8vw;
   background-color: #1e1e1e;
+  overflow: hidden;
 }
 .container p {
   font-weight: 700;

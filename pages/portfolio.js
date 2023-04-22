@@ -1,13 +1,13 @@
+import CloseIcon from "@mui/icons-material/Close";
 import { CircularProgress, Modal } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/Portfolio.module.css";
 import client from "../utils/client";
-import { urlFor } from "../utils/image";
-import CloseIcon from "@mui/icons-material/Close";
+import { urlFor, urlForThumbnail } from "../utils/image";
+import { useRouter } from "next/router";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -18,23 +18,16 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function Portfolio(props) {
-  const router = useRouter();
-  const { service } = router.query;
   const { t } = useTranslation("common");
-
+  const { locale } = useRouter();
   const [projects, setProjects] = useState([]);
-  const [type, setType] = useState("all");
   const [loading, setLoading] = useState(true);
   const [openProject, setOpenProject] = useState(false);
   const [project, setProject] = useState(true);
 
   const fetchData = async () => {
-    var query = `*[_type == "project"]`;
-    if (type !== "all") {
-      query = `*[_type == "project" && type=="${type}"]`;
-    }
     try {
-      const projects = await client.fetch(query);
+      const projects = await client.fetch(`*[_type == "project"]`);
       setProjects(projects);
       setLoading(false);
     } catch (error) {
@@ -44,16 +37,12 @@ export default function Portfolio(props) {
 
   useEffect(() => {
     fetchData();
-  }, [type]);
-
-  useEffect(() => {
-    if (router.isReady && service) setType(service);
-  }, [router.isReady, router]);
+  }, []);
 
   return (
     <Layout
       title={"Portfolio"}
-      description="achref-mtir - Our partners and projects reflects our hard work and dedication"
+      description="Our partners and projects reflects our passion, hard work and dedication"
       tags={[
         "achref-mtir",
         "digital",
@@ -210,67 +199,60 @@ export default function Portfolio(props) {
         </div>
       </Modal>
       <section className={styles.container}>
-        <div className={styles.overlay}>
-          <div className={styles.header}>
-            <h1>{t("discover_our_projects")}</h1>
-            <div className={styles.menu}>
-              <button
-                onClick={() => setType("all")}
-                className={
-                  type === "all"
-                    ? `${styles.button} ${styles.active}`
-                    : styles.button
-                }
-              >
-                {t("all")}
-              </button>
-              <button
-                onClick={() => setType("design")}
-                className={
-                  type === "design"
-                    ? `${styles.button} ${styles.active}`
-                    : styles.button
-                }
-              >
-                {t("design")}
-              </button>
-              <button
-                onClick={() => setType("cm")}
-                className={
-                  type === "cm"
-                    ? `${styles.button} ${styles.active}`
-                    : styles.button
-                }
-              >
-                {t("cm")}
-              </button>
-              <button
-                onClick={() => setType("development")}
-                className={
-                  type === "development"
-                    ? `${styles.button} ${styles.active}`
-                    : styles.button
-                }
-              >
-                {t("development")}
-              </button>
+        <div className={styles.header}>
+          <div className={styles.col60}>
+            <h1>
+              {locale === "en"
+                ? "And the best is yet to come"
+                : "Et le meilleur reste à venir"}
+            </h1>
+          </div>
+          <div className={styles.col40}>
+            <img
+              alt="And the best is yet to come !"
+              src={"/" + "./images/portfolio.gif"}
+            />
+          </div>
+        </div>
+        <div className={styles.projects}>
+          {loading ? (
+            <div className="spinner">
+              <CircularProgress sx={{ color: "#fff" }} />
             </div>
-            <div className={styles.projects}>
-              {loading ? (
-                <div className="spinner">
-                  <CircularProgress sx={{ color: "#000" }} />
-                </div>
-              ) : (
-                <>
-                  {projects.map((project, index) => {
-                    return (
-                      <div
-                        data-aos="zoom-in"
-                        data-aos-delay={250 * index}
-                        key={project._id}
-                        className={styles.project}
-                      >
-                        <div className={styles.body}>
+          ) : (
+            <>
+              {projects
+                .sort((a, b) => {
+                  if (a.order < b.order) {
+                    return -1;
+                  }
+                  if (a.order > b.order) {
+                    return 1;
+                  }
+                  return 0;
+                })
+                .map((project, index) => {
+                  return (
+                    <div
+                      data-aos="zoom-in"
+                      data-aos-delay={250 * index}
+                      key={project._id}
+                      className={styles.project}
+                    >
+                      <div className={styles.body}>
+                        {project.isLive ? (
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              style={{ cursor: "pointer" }}
+                              alt={project.name}
+                              src={urlForThumbnail(project.image.asset._ref)}
+                            />
+                          </a>
+                        ) : (
                           <img
                             style={{ cursor: "pointer" }}
                             onClick={() => {
@@ -279,18 +261,35 @@ export default function Portfolio(props) {
                                 setOpenProject(true);
                             }}
                             alt={project.name}
-                            src={urlFor(project.image.asset._ref)}
+                            src={urlForThumbnail(project.image.asset._ref)}
                           />
-                          <h1>{project.name}</h1>
-                          <p>{project.description}</p>
+                        )}
+                        <h1>{project.name}</h1>
+                        {locale === "en" ? (
+                          <p>{project.en_description}</p>
+                        ) : (
+                          <p>{project.fr_description}</p>
+                        )}
+                        <div className={styles.tags}>
+                          {project.tags.map((tag, index) => {
+                            return (
+                              <div
+                                data-aos="fade-left"
+                                data-aos-delay={250 * index}
+                                key={index}
+                                className={styles.tag}
+                              >
+                                {tag}
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
-                    );
-                  })}
-                </>
-              )}
-            </div>
-          </div>
+                    </div>
+                  );
+                })}
+            </>
+          )}
         </div>
       </section>
     </Layout>

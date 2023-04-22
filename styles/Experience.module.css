@@ -1,6 +1,7 @@
 .container {
   padding: 10px 8vw 150px 8vw;
   background-color: #1e1e1e;
+  overflow: hidden;
 }
 .container p {
   font-weight: 700;
@@ -21,8 +22,6 @@
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  border: 1px solid #fff;
-  color: #fff;
   border: 3px solid #5a5958;
   border-radius: 35px;
   padding: 10px;
@@ -30,6 +29,27 @@
   font-size: clamp(13px, 1.2vw, 16px);
   color: #d2650f;
   text-transform: uppercase;
+}
+.cv {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d2650f;
+  color: #fff;
+  border: 3px solid #d2650f;
+  border-radius: 35px;
+  padding: 10px;
+  font-weight: 700;
+  font-size: clamp(13px, 1.2vw, 16px);
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.cv:hover {
+  background-color: #fff;
+  color: #d2650f;
+  border: 3px solid #d2650f;
 }
 .desc {
   padding: 0px 20px;

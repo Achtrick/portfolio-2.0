@@ -76,7 +76,7 @@ export default function Header(props) {
       <div
         onClick={() => setShowLangsList(false)}
         style={{
-          backgroundColor: scrolled ? "#1E1E1E" : null,
+          backdropFilter: scrolled ? "blur(15px)" : null,
           transition: "all 0.3s",
         }}
         className={styles.navbar}

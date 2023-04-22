@@ -1,11 +1,11 @@
-import styles from "../styles/Skills.module.css";
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "next-i18next";
-import { CircularProgress, Tooltip } from "@mui/material";
-import client from "../utils/client";
-import { useRouter } from "next/router";
-import { urlFor } from "../utils/image";
 import CircleIcon from "@mui/icons-material/Circle";
+import { CircularProgress, Tooltip } from "@mui/material";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import styles from "../styles/Skills.module.css";
+import client from "../utils/client";
+import { urlForThumbnail } from "../utils/image";
 
 function Skills(props) {
   const { t } = useTranslation("common");
@@ -79,7 +79,7 @@ function Skills(props) {
                   className={styles.imgHolder}
                 >
                   <Tooltip title={skill.name}>
-                    <img alt={skill.name} src={urlFor(skill.image)} />
+                    <img alt={skill.name} src={urlForThumbnail(skill.image)} />
                   </Tooltip>
                   <div
                     data-aos="fade-up"

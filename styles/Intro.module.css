@@ -17,6 +17,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
+  overflow: hidden;
 }
 .col60 {
   width: 60%;
@@ -85,5 +86,13 @@
   .col60 {
     width: 100%;
     padding: 20px;
+  }
+}
+@media (max-width: 380px) {
+  .col40 img {
+    width: 50%;
+  }
+  .col40 {
+    margin-bottom: -60px;
   }
 }

@@ -14,7 +14,7 @@ export default function Layout({ title, tags, description, children }) {
   return (
     <>
       <Head>
-        <title>{title ? `achref-mtir - ${title}` : "achref-mtir"}</title>
+        <title>{title ? `Achref MTIR - ${title}` : "Achref MTIR"}</title>
         {description && <meta name="description" content={description}></meta>}
         {tags && <meta name="keywords" content={tags.join(", ")}></meta>}
         <link defer rel="preconnect" href="https://fonts.googleapis.com" />

@@ -8,5 +8,10 @@
   "intro": "avec passion et dévouement je suis entré dans le monde du développement logiciel, mon plan est de grandir avec la technologie autant que je peux et contribuer au monde pour aider l’humanité avec des technologies et des solutions de pointe.",
   "education": "éducation",
   "skills": "compétences",
-  "experience": "expérience"
+  "experience": "expérience",
+  "contact_name": "nom",
+  "contact_email": "email",
+  "contact_phone": "téléphone",
+  "contact_subject": "sujet",
+  "contact_message": "message"
 }

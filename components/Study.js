@@ -35,23 +35,34 @@ function Study(props) {
         </div>
       ) : (
         <>
-          {studies.reverse().map((study, index) => {
-            return (
-              <div
-                data-aos="fade-up"
-                data-aos-delay={(index + 1) * 200}
-                key={study._id}
-                className={styles.row}
-              >
-                <div className={styles.year}>
-                  {study.from + " - " + study.to}
+          {studies
+            .sort((a, b) => {
+              if (a.from < b.from) {
+                return 1;
+              }
+              if (a.from > b.from) {
+                return -1;
+              }
+              return 0;
+            })
+            .map((study, index) => {
+              return (
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay={(index + 1) * 200}
+                  key={study._id}
+                  className={styles.row}
+                >
+                  <div className={styles.year}>
+                    {study.from + " - " + study.to}
+                  </div>
+                  <div className={styles.desc}>
+                    <p>{locale === "en" ? study.en_title : study.fr_title}</p>
+                    <p>{study.institution}</p>
+                  </div>
                 </div>
-                <div className={styles.desc}>
-                  <p>{locale === "en" ? study.en_title : study.fr_title}</p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </>
       )}
     </div>

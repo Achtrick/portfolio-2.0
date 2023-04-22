@@ -39,6 +39,12 @@
   font-weight: 100;
   font-size: clamp(14px, 1.8vw, 30px);
   color: #ffffff;
+  margin: 0px;
+}
+.desc p:nth-of-type(2) {
+  font-size: clamp(12px, 1.8vw, 18px);
+  color: #858382;
+  margin: 0px;
 }
 
 @media (max-width: 900px) {

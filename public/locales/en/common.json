@@ -8,5 +8,10 @@
   "intro": "with passion and dedication i entered the world of software development, my plan is to grow with technology as much as i can and contribute to the world to help humanity with cutting edge technologies and solutions.",
   "education": "education",
   "skills": "skills",
-  "experience": "experience"
+  "experience": "experience",
+  "contact_name": "name",
+  "contact_email": "email",
+  "contact_phone": "phone",
+  "contact_subject": "subject",
+  "contact_message": "message"
 }

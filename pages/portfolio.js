@@ -210,7 +210,8 @@ export default function Portfolio(props) {
           <div className={styles.col40}>
             <img
               alt="And the best is yet to come !"
-              src={"/" + "./images/portfolio.gif"}
+              // src={"/" + "./images/portfolio.gif"}
+              src="https://i.pinimg.com/originals/a4/76/b0/a476b0136bb9fc776eed816e82c2e808.gif"
             />
           </div>
         </div>

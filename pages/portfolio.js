@@ -176,11 +176,8 @@ export default function Portfolio(props) {
       ]}
     >
       {openProject ? (
-        <div className={styles.close}>
-          <CloseIcon
-            style={{ color: "#000" }}
-            onClick={() => setOpenProject(false)}
-          />
+        <div onClick={() => setOpenProject(false)} className={styles.close}>
+          <CloseIcon style={{ color: "#000" }} />
         </div>
       ) : null}
       <Modal open={openProject} onClose={() => setOpenProject(false)}>
@@ -243,27 +240,29 @@ export default function Portfolio(props) {
                       <div className={styles.body}>
                         {project.isLive ? (
                           <a
+                            className={styles.imgHolder}
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
                             <img
-                              style={{ cursor: "pointer" }}
                               alt={project.name}
                               src={urlForThumbnail(project.image.asset._ref)}
                             />
                           </a>
                         ) : (
-                          <img
-                            style={{ cursor: "pointer" }}
-                            onClick={() => {
-                              setProject(project);
-                              if (project.gallery?.length > 0)
-                                setOpenProject(true);
-                            }}
-                            alt={project.name}
-                            src={urlForThumbnail(project.image.asset._ref)}
-                          />
+                          <a className={styles.imgHolder}>
+                            <img
+                              style={{ cursor: "pointer" }}
+                              onClick={() => {
+                                setProject(project);
+                                if (project.gallery?.length > 0)
+                                  setOpenProject(true);
+                              }}
+                              alt={project.name}
+                              src={urlForThumbnail(project.image.asset._ref)}
+                            />
+                          </a>
                         )}
                         <h1>{project.name}</h1>
                         {locale === "en" ? (

@@ -37,11 +37,11 @@ function Experience(props) {
         <>
           {experiences
             .sort((a, b) => {
-              if (a.to < b.to || a.to === "Present") {
-                return -1;
-              }
-              if (a.to > b.to) {
+              if (a.order < b.order) {
                 return 1;
+              }
+              if (a.order > b.order) {
+                return -1;
               }
               return 0;
             })

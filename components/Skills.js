@@ -75,7 +75,7 @@ function Skills(props) {
                 <div
                   key={index}
                   data-aos="fade-up"
-                  data-aos-delay={(index + 1) * 200}
+                  data-aos-delay={(index + 1) * 150}
                   className={styles.imgHolder}
                 >
                   <Tooltip title={skill.name}>
@@ -83,7 +83,7 @@ function Skills(props) {
                   </Tooltip>
                   <div
                     data-aos="fade-up"
-                    data-aos-delay={(index + 3) * 200}
+                    data-aos-delay={(index + 3) * 150}
                     className={styles.rating}
                   >
                     {renderSkillRating(skill.level)}

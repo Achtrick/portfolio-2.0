@@ -81,13 +81,6 @@ function Skills(props) {
                   <Tooltip title={skill.name}>
                     <img alt={skill.name} src={urlForThumbnail(skill.image)} />
                   </Tooltip>
-                  <div
-                    data-aos="fade-up"
-                    data-aos-delay={(index + 3) * 150}
-                    className={styles.rating}
-                  >
-                    {renderSkillRating(skill.level)}
-                  </div>
                 </div>
               );
             })}

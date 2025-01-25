@@ -1,9 +1,9 @@
+import { CircularProgress } from "@mui/material";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Experience.module.css";
-import { useTranslation } from "next-i18next";
-import { CircularProgress } from "@mui/material";
 import client from "../utils/client";
-import { useRouter } from "next/router";
 
 function Experience(props) {
   const { t } = useTranslation("common");

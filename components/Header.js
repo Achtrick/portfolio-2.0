@@ -1,14 +1,13 @@
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import { IconButton, Modal, useMediaQuery } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import styles from "../styles/Navbar.module.css";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import { AppContext } from "./AppContext";
 
 export default function Header(props) {

@@ -7,7 +7,7 @@ import { AppContext } from "./AppContext";
 import Footer from "./Footer";
 import Header from "./Header";
 
-export default function Layout({ title, tags, description, children }) {
+export default function Layout({ title, description, children }) {
   const router = useRouter();
   const { setShowLangsList } = useContext(AppContext);
 

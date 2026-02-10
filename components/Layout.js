@@ -192,7 +192,7 @@ export default function Layout({ title, description, children }) {
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <meta name="theme-color" content="#000" />
         <meta charSet="utf-8" />
-        <link rel="canonical" href="https://achref-mtir.tn" />
+        <link rel="canonical" href="https://achraf-mtir.dev" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="robots" content="index, follow" />
       </Head>

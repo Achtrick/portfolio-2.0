@@ -1,68 +1,70 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
-<url>
-<loc>https://achref-mtir.tn/</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>1.00</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/services</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/portfolio</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/blog</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/contact</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/news</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/privacy-policy</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/en/services</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/en/portfolio</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/en/blog</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/en/contact</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/en/news</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://achref-mtir.tn/en/privacy-policy</loc>
-<lastmod>2022-12-28T14:09:05+00:00</lastmod>
-<priority>0.80</priority>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+    <url>
+        <loc>https://achraf-mtir.dev/</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/services</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/portfolio</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/blog</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/contact</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/news</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/privacy-policy</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/en/services</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/en/portfolio</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/en/blog</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/en/contact</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/en/news</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://achraf-mtir.dev/en/privacy-policy</loc>
+        <lastmod>2022-12-28T14:09:05+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
 </urlset>

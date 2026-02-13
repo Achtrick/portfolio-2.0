@@ -6,7 +6,7 @@
 .container p {
   font-weight: 700;
   font-size: clamp(18px, 2vw, 30px);
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
   text-transform: uppercase;
 }
 .container img {

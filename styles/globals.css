@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --PrimaryMainColor: #0f6ad2;
+}
+
 html,
 body {
   padding: 0;
@@ -21,7 +25,7 @@ select:focus {
 }
 
 .button {
-  background-color: #d2650f;
+  background-color: var(--PrimaryMainColor);
   color: white;
   padding: 8px 15px;
   width: 150px;
@@ -34,15 +38,15 @@ select:focus {
   cursor: pointer;
   transition: all 0.3s;
   margin: 0;
-  border: 1px solid #d2650f;
+  border: 1px solid var(--PrimaryMainColor);
 }
 
 .button:hover,
 .button:focus,
 .button.active {
-  border: 1px solid #d2650f;
+  border: 1px solid var(--PrimaryMainColor);
   background-color: white;
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
 }
 
 /*********************/
@@ -66,7 +70,7 @@ select:focus {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #d2650f;
+  background: var(--PrimaryMainColor);
 }
 .spinner {
   width: 100%;

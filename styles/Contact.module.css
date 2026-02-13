@@ -24,7 +24,7 @@
   line-height: 109.72%;
   letter-spacing: 0.085em;
   text-transform: uppercase;
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
   margin-bottom: 100px;
 }
 .form_container {
@@ -41,12 +41,12 @@
 
 .form_col {
   width: 31%;
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
   font-family: "Bebas Neue", cursive;
 }
 .form_colx2 label {
   font-family: "Bebas Neue", cursive;
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
 }
 .form_colx2 textarea {
   font-family: "Bebas Neue", cursive;
@@ -59,7 +59,7 @@
 .form_input {
   width: 100%;
   padding: 10px 15px;
-  border: 1px solid #d2650f;
+  border: 1px solid var(--PrimaryMainColor);
   border-radius: 0;
   margin-bottom: 20px;
   font-size: 1.2rem;
@@ -72,7 +72,7 @@
 .form_input_field {
   width: 100%;
   padding: 10px 15px;
-  border: 1px solid #d2650f;
+  border: 1px solid var(--PrimaryMainColor);
   border-radius: 0;
   margin-bottom: 20px;
   background-color: transparent;
@@ -97,7 +97,7 @@
   letter-spacing: 0.105em;
   text-decoration-line: underline;
   text-transform: uppercase;
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
   margin: 20px 100px;
 }
 

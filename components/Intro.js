@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next";
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../styles/Intro.module.css";
 // Import Swiper styles
 import { useMediaQuery } from "@mui/material";
@@ -15,7 +15,9 @@ export default function Intro(props) {
 
   return (
     <section className={styles.container}>
-      <img alt="intro" src={"/images/intro.webp"} />
+      <img alt="intro" src={"/images/blue-dot.png"} />
+      <img alt="intro" src={"/images/blue-dot.png"} />
+      <img alt="intro" src={"/images/blue-dot.png"} />
       <div className={styles.overlay}>
         <div className={styles.col60}>
           <h1 data-aos="fade-left" data-aos-delay="100">
@@ -65,7 +67,7 @@ export default function Intro(props) {
             data-aos="fade-right"
             data-aos-delay={isMobile ? "" : "1000"}
             alt="achref-mtir"
-            src="/images/achref.webp"
+            src="/images/achref.png"
           />
         </div>
       </div>

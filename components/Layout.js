@@ -159,6 +159,17 @@ export default function Layout({ title, description, children }) {
     <>
       <Head>
         <title>{title ? `Achref MTIR - ${title}` : "Achref MTIR"}</title>
+        <meta
+          property="og:title"
+          content={title ? `Achref MTIR - ${title}` : "Achref MTIR"}
+        />
+        <meta property="og:description" content="Software engineer." />
+        <meta
+          property="og:image"
+          content="https://achraf-mtir.dev/images/achref.png"
+        />
+        <meta property="og:url" content="https://achraf-mtir.dev/" />
+        <meta property="og:type" content="website" />
         {description && <meta name="description" content={description}></meta>}
         {tags && <meta name="keywords" content={tags.join(", ")}></meta>}
         <link defer rel="preconnect" href="https://fonts.googleapis.com" />

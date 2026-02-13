@@ -6,7 +6,7 @@
 .container p {
   font-weight: 700;
   font-size: clamp(18px, 2vw, 30px);
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
   text-transform: uppercase;
 }
 .row {
@@ -27,7 +27,7 @@
   padding: 10px;
   font-weight: 700;
   font-size: clamp(13px, 1.2vw, 16px);
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
   text-transform: uppercase;
 }
 .cv {
@@ -36,9 +36,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d2650f;
+  background-color: var(--PrimaryMainColor);
   color: #fff;
-  border: 3px solid #d2650f;
+  border: 3px solid var(--PrimaryMainColor);
   border-radius: 35px;
   padding: 10px;
   font-weight: 700;
@@ -48,8 +48,8 @@
 }
 .cv:hover {
   background-color: #fff;
-  color: #d2650f;
-  border: 3px solid #d2650f;
+  color: var(--PrimaryMainColor);
+  border: 3px solid var(--PrimaryMainColor);
 }
 .desc {
   padding: 0px 20px;

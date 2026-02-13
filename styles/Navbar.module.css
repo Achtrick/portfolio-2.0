@@ -28,10 +28,10 @@
   text-transform: uppercase;
 }
 .links a:hover {
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
 }
 .activeLink {
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
 }
 .lang {
   position: relative;
@@ -47,7 +47,7 @@
   transition: all 0.3s;
 }
 .lang p:hover {
-  color: #d2650f;
+  color: var(--PrimaryMainColor);
 }
 .navbar p {
   font-weight: 500;

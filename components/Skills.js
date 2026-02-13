@@ -2,7 +2,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import { CircularProgress, Tooltip } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/Skills.module.css";
 import client from "../utils/client";
 import { urlForThumbnail } from "../utils/image";
@@ -31,9 +31,11 @@ function Skills(props) {
         block.push(
           <div key={i}>
             &nbsp;
-            <CircleIcon sx={{ color: "#d2650f", fontSize: "10px" }} />
+            <CircleIcon
+              sx={{ color: "var(--PrimaryMainColor)", fontSize: "10px" }}
+            />
             &nbsp;
-          </div>
+          </div>,
         );
       } else {
         block.push(
@@ -41,7 +43,7 @@ function Skills(props) {
             &nbsp;
             <CircleIcon sx={{ color: "#F0F0F0", fontSize: "10px" }} />
             &nbsp;
-          </div>
+          </div>,
         );
       }
     }

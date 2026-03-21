@@ -1,12 +1,10 @@
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton, Modal, useMediaQuery } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "../styles/Navbar.module.css";
 import { AppContext } from "./AppContext";
 
@@ -113,7 +111,7 @@ export default function Header(props) {
             </a>
           </Link>
         </div>
-        <div className={styles.lang}>
+        {/* <div className={styles.lang}>
           <p
             className={styles.button}
             onClick={(e) => {
@@ -126,10 +124,10 @@ export default function Header(props) {
                 ? "fr"
                 : "français"
               : locale === "en"
-              ? isMobile
-                ? "en"
-                : "english"
-              : null}{" "}
+                ? isMobile
+                  ? "en"
+                  : "english"
+                : null}{" "}
             {showLangsList ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
           </p>
           &nbsp; &nbsp;
@@ -158,7 +156,7 @@ export default function Header(props) {
               </Link>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

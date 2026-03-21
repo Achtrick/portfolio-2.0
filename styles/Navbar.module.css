@@ -13,14 +13,13 @@
   overflow: hidden;
 }
 .links {
-  width: 70%;
+  width: 100%;
   display: flex;
-  padding: 0px 50px 0px 0px;
-  margin-left: 10%;
+  padding: 15px;
   justify-content: center;
+  gap: 20px;
 }
 .links a {
-  margin: 0px 10px;
   text-decoration: none;
   transition: all 0.3s;
   font-weight: 600;
@@ -102,9 +101,6 @@
   border-radius: 20px;
 }
 @media (max-width: 950px) {
-  .links {
-    display: none;
-  }
   .langmenu {
     right: 10px;
   }
@@ -120,7 +116,9 @@
   .logo img {
     width: 70px;
   }
-  .openDrawer {
-    display: block;
+}
+@media (max-width: 480px) {
+  .links {
+    justify-content: space-evenly;
   }
 }

@@ -104,11 +104,12 @@
 @media (max-width: 900px) {
   .overlay {
     flex-direction: column-reverse;
+    align-items: center;
   }
   .col40 {
-    width: 100%;
-    height: 100%;
+    flex: 1;
     justify-content: center;
+    width: auto;
   }
   .col40 img {
     width: 70%;
@@ -118,9 +119,9 @@
     padding: 20px;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 420px) {
   .col40 img {
-    width: 50%;
+    width: 100% !important;
   }
   .col40 {
     margin-bottom: -60px;

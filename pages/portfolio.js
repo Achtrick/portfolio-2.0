@@ -135,7 +135,7 @@ export default function Portfolio(props) {
                         )}
                         <h1>{project.name}</h1>
                         {locale === "en" ? (
-                          <pre>{project.en_description}</pre>
+                          <p>{project.en_description}</p>
                         ) : (
                           <p>{project.fr_description}</p>
                         )}

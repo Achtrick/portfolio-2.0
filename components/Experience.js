@@ -62,11 +62,11 @@ function Experience(props) {
                         ? experience.en_title
                         : experience.fr_title}
                     </p>
-                    <p>
+                    <pre>
                       {locale === "en"
                         ? experience.en_description
                         : experience.fr_description}
-                    </p>
+                    </pre>
                   </div>
                 </div>
               );

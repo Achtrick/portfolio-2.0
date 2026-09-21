@@ -24,7 +24,7 @@ export default function Intro(props) {
             {t("hi_iam")}
           </h1>
           <h2 data-aos="fade-left" data-aos-delay="200">
-            achref mtir
+            achraf mtir
           </h2>
           <h3 data-aos="fade-left" data-aos-delay="300">
             {t("fullstack_developer")}

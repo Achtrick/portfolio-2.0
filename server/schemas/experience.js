@@ -31,7 +31,7 @@ export default {
     {
       name: 'en_description',
       title: 'En_Description',
-      type: 'string',
+      type: 'text',
     },
     {
       name: 'fr_description',

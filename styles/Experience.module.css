@@ -60,9 +60,16 @@
   font-size: clamp(15px, 1.8vw, 30px);
   color: #ffffff;
 }
-.desc p:nth-of-type(2) {
+.desc pre {
   font-size: clamp(14px, 0.8vw, 24px);
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  font-weight: 200 !important;
+  text-transform: lowercase !important;
   color: #cecece;
+  width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 900px) {
